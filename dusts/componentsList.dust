@@ -1,0 +1,3 @@
+{#components}
+    <li data-icon="arrow-r"><a id="section{name}" href="#">{name}</a></li>
+{/components}
