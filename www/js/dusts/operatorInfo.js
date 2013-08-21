@@ -1,1 +1,0 @@
-(function(){dust.register("operatorInfo",body_0);function body_0(chk,ctx){return chk.reference(ctx.get("username"),ctx,"h").write(" &lt;").reference(ctx.get("email"),ctx,"h").write("&gt;<br>").reference(ctx.get("lastLogin"),ctx,"h").write("<br>").reference(ctx.get("sessionKey"),ctx,"h");}return body_0;})();

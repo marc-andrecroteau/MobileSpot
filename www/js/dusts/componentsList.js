@@ -1,1 +1,0 @@
-(function(){dust.register("componentsList",body_0);function body_0(chk,ctx){return chk.section(ctx.get("components"),ctx,{"block":body_1},null);}function body_1(chk,ctx){return chk.write("<li data-icon=\"arrow-r\"><a id=\"section").reference(ctx.get("name"),ctx,"h").write("\" href=\"#\">").reference(ctx.get("name"),ctx,"h").write("</a></li>");}return body_0;})();

@@ -1,1 +1,0 @@
-(function(){dust.register("queryURL",body_0);function body_0(chk,ctx){return chk.reference(ctx.get("protocol"),ctx,"h").write("://").reference(ctx.get("serverURL"),ctx,"h").write(":").reference(ctx.get("serverPort"),ctx,"h").write("/").reference(ctx.get("serviceName"),ctx,"h").write("/");}return body_0;})();
