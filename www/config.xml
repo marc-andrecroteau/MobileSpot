@@ -9,9 +9,7 @@
         Spotted something interesting? Share it with everyone!
     </description>
 
-    <author href="http://yospot.com" email="support@yospot.com">
-        YoSpot
-    </author>
+    <author href="http://yospot.com" email="support@yospot.com">YoSpot</author>
 
     <feature name="http://api.phonegap.com/1.0/device" />
 
@@ -21,8 +19,8 @@
     <preference name="fullscreen"       value="false" />
 
     <gap:plugin name="com.phonegap.plugins.facebookconnect">
-        <param name="492964707460823" value="..." />
-        <param name="MobileSpot" value="..." />
+        <param name="APP_ID" value="492964707460823" />
+        <param name="APP_NAME" value="MobileSpot" />
     </gap:plugin>
 
     <icon src="icon.png" />
