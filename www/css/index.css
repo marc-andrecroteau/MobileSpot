@@ -62,15 +62,20 @@ body {
     padding: 3px 15px 15px 15px;
 }
 
+.ui-btn-icon-notext .ui-btn-inner .ui-icon {
+    margin: 11px;
+}
+
+.ui-header > .ui-btn {
+    height: 40px;
+    width: 40px;
+}
+
 h1,h2,h3,h4,h5,h6 {
     padding: 0;
     margin: 0;
 }
-h1 {
-    font-size: 24px;
-    font-weight: normal;
-    margin: 0;
-    overflow: visible;
-    padding: 0;
-    text-align: center;
+
+#header h1 {
+    line-height: 35px;
 }

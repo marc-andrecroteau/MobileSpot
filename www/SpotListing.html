@@ -9,6 +9,7 @@
     <script src="js/lib/jquery-1.9.1.js"></script>
     <script src="js/phonegap_init.js"></script>
     <script src="js/lib/jquery.mobile-1.3.2.js"></script>
+    <link rel="stylesheet" href="css/themes/z.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
     <link rel="stylesheet" href="css/index.css" />
     <script src="phonegap.js"></script>
@@ -18,68 +19,48 @@
     <script src="js/application.js"></script>
 </head>
 <body>
-<style>
-    #nav div#form {
-        margin-top: 20px;
-        margin-bottom: 35px;
-    }
-</style>
 
-<div data-role="page" id="home" data-title="Home">
-    <div data-role="header" data-position="fixed" data-theme="b">
-        <a href="#nav" data-role="button" data-icon="bars" data-iconpos="notext" data-inline="true" data-theme="b">Menu</a>
-        <h1>On The Spot</h1>
+<div data-role="page" data-title="" data-theme="z">
+    <div data-role="header" id="header" data-position="fixed" data-theme="z">
+        <a href="#nav" data-role="button" data-icon="bars" data-iconpos="notext" data-inline="true" data-corners="false" data-theme="z">Menu</a>
+        <h1 role="heading" class="ui-title">On The Spot</h1>
     </div>
-    <div data-role="content">
-        <ul data-role="listview">
-            <li data-role="list-divider">A</li>
+    <div data-role="content" data-theme="z">
+        <ul id="list" data-role="listview" data-autodividers="true" data-theme="z" data-dividertheme="z">
             <li><a href="index.html">Adam Kinkaid</a></li>
             <li><a href="index.html">Alex Wickerham</a></li>
             <li><a href="index.html">Avery Johnson</a></li>
-            <li data-role="list-divider">B</li>
             <li><a href="index.html">Bob Cabot</a></li>
-            <li data-role="list-divider">C</li>
             <li><a href="index.html">Caleb Booth</a></li>
             <li><a href="index.html">Christopher Adams</a></li>
             <li><a href="index.html">Culver James</a></li>
-            <li data-role="list-divider">D</li>
             <li><a href="index.html">David Walsh</a></li>
             <li><a href="index.html">Drake Alfred</a></li>
-            <li data-role="list-divider">E</li>
             <li><a href="index.html">Elizabeth Bacon</a></li>
             <li><a href="index.html">Emery Parker</a></li>
             <li><a href="index.html">Enid Voldon</a></li>
-            <li data-role="list-divider">F</li>
             <li><a href="index.html">Francis Wall</a></li>
-            <li data-role="list-divider">G</li>
             <li><a href="index.html">Graham Smith</a></li>
             <li><a href="index.html">Greta Peete</a></li>
-            <li data-role="list-divider">H</li>
             <li><a href="index.html">Harvey Walls</a></li>
-            <li data-role="list-divider">M</li>
             <li><a href="index.html">Mike Farnsworth</a></li>
             <li><a href="index.html">Murray Vanderbuilt</a></li>
-            <li data-role="list-divider">N</li>
             <li><a href="index.html">Nathan Williams</a></li>
-            <li data-role="list-divider">P</li>
             <li><a href="index.html">Paul Baker</a></li>
             <li><a href="index.html">Pete Mason</a></li>
-            <li data-role="list-divider">R</li>
             <li><a href="index.html">Rod Tarker</a></li>
-            <li data-role="list-divider">S</li>
             <li><a href="index.html">Sawyer Wakefield</a></li>
         </ul>
     </div>
     <div data-role="panel" id="nav" data-display="reveal" data-dismissible="true" data-theme="a">
-        <div id="form">
-            <form>
-                <label for="search" class="ui-hidden-accessible">Search</label>
-                <input type="search" name="search" id="search" value="" placeholder="Search" data-mini="true" data-theme="b" />
-            </form>
-        </div>
+        <form>
+            <label for="search" class="ui-hidden-accessible">Search</label>
+            <input type="search" name="search" id="search" value="" placeholder="Search" data-mini="true" data-theme="z" />
+        </form>
+        <br />
         <ul data-role="listview" data-theme="a">
             <li><a href="index.html" rel="external">Home</a></li>
-            <li><a href="login.html">Notifications</a></li>
+            <li><a href="login.html" rel="external">Notifications</a></li>
             <li><a href="#">Hot Spots</a></li>
             <li><a href="#">Top Spots</a></li>
             <li><a href="#">User Settings</a></li>

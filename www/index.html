@@ -9,6 +9,7 @@
     <script src="js/lib/jquery-1.9.1.js"></script>
     <script src="js/phonegap_init.js"></script>
     <script src="js/lib/jquery.mobile-1.3.2.js"></script>
+    <link rel="stylesheet" href="css/themes/z.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
     <link rel="stylesheet" href="css/index.css" />
     <script src="phonegap.js"></script>
@@ -20,10 +21,10 @@
 <body>
 
 
-<div data-role="page" id="home" data-title="Home">
-    <div data-role="header" data-position="fixed" data-theme="b">
-        <a href="#nav" data-role="button" data-icon="bars" data-iconpos="notext" data-inline="true" data-theme="b">Menu</a>
-        <h1>On The Spot</h1>
+<div data-role="page" id="home" data-title="Home" data-theme="z">
+    <div data-role="header" id="header" data-position="fixed" data-theme="z">
+        <a href="#nav" data-role="button" data-icon="bars" data-iconpos="notext" data-inline="true" data-corners="false" data-theme="z">Menu</a>
+        <h1 role="heading" class="ui-title">On The Spot</h1>
     </div>
     <div data-role="content">
         <ul data-role="listview">
@@ -35,12 +36,12 @@
     <div data-role="panel" id="nav" data-display="reveal" data-dismissible="true" data-theme="a">
         <form>
             <label for="search" class="ui-hidden-accessible">Search</label>
-            <input type="search" name="search" id="search" value="" placeholder="Search" data-mini="true" data-theme="b" />
+            <input type="search" name="search" id="search" value="" placeholder="Search" data-mini="true" data-theme="z" />
         </form>
         <br />
         <ul data-role="listview" data-theme="a">
             <li><a href="index.html" rel="external">Home</a></li>
-            <li><a href="login.html">Notifications</a></li>
+            <li><a href="login.html" rel="external">Notifications</a></li>
             <li><a href="#">Hot Spots</a></li>
             <li><a href="#">Top Spots</a></li>
             <li><a href="#">User Settings</a></li>
