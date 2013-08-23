@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html manifest="manifest.appcache">
 <head>
+    <!-- TODO: Create Makefile or Node module to parse all pages in the same page. -->
+    <!-- TODO: Minify CSS and JS in build process. -->
     <meta charset="utf-8"/>
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>OnTheSpot Mobile</title>
     <!--<link rel="stylesheet" href="css/reset.css"/>-->
     <script src="js/lib/jquery-1.9.1.js"></script>
