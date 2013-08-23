@@ -980,7 +980,7 @@ only screen and (min-resolution: 200dpi) {
 }
 /* loading icon */
 .ui-icon-loading {
-    background: url(images/ajax-loader.gif);
+    background: url(images_old/ajax-loader.gif);
     background-size: 46px 46px;
 }
 /* Button corner class
