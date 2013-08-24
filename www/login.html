@@ -60,6 +60,9 @@
     var friendIDs = [];
     var fdata;
     function me() {
+        FB.api('/me', function(me) {
+            alert(me.name);
+        });
         FB.api('/me/friends', { fields: 'id, name, picture' },  function(response) {
             if (response.error) {
                 alert(JSON.stringify(response.error));
