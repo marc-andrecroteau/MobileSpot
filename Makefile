@@ -60,19 +60,18 @@ HTML_FILES= header.html \
 			help.html \
 			footer.html
 
-CSS_FILES        := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
-JS_FILES         := $(JS_FILES:%=$(IN_JS_ROOT)/%)
-HTML_FILES       := $(HTML_FILES:%=$(IN_HTML_ROOT)/%)
+CSS_FILES  := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
+JS_FILES   := $(JS_FILES:%=$(IN_JS_ROOT)/%)
+HTML_FILES := $(HTML_FILES:%=$(IN_HTML_ROOT)/%)
 
 ##
 ## Build All Modules
 ##
-all: build-all build-css build-js build-html clean
+all: build-all build-css build-js build-html
 	@echo
 	@echo --\> Build All Completed Succesfully.
 build-all:
 	@echo --\> Begin Build All.
-nojs: build-css build-html clean
 
 
 ##
