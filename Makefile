@@ -64,7 +64,7 @@ build-js:
 		${IN_JS_ROOT}/app/init.js \
 		${IN_JS_ROOT}/app/login.js \
 		${IN_JS_ROOT}/app/enum.js \
-		${IN_JS_ROOT}/app/help.js \ > ${TMP_ROOT}/tmp.js.js
+		${IN_JS_ROOT}/app/help.js > ${TMP_ROOT}/tmp.js.js
 	#CP ${TMP_ROOT}/tmp.js.js ${OUT_JS}
 	${UGLIFY} ${TMP_ROOT}/tmp.js.js --output ${OUT_JS} --compress
 	@echo --\> Build JS Completed Succesfully.
