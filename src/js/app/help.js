@@ -25,9 +25,9 @@
 
     function validateContactForm($form) {
         return (
-            validate($form.find("#Contact_Message_Kind option:selected"), Validation.Mandatory) &&
-                validate($form.find("#Contact_Name"), Validation.Mandatory) &&
-                validate($form.find("#Contact_Subject"), Validation.Mandatory) &&
+            validate($form.find("#Contact_Message_Kind option:selected"), Validation.Mandatory) &
+                validate($form.find("#Contact_Name"), Validation.Mandatory) &
+                validate($form.find("#Contact_Subject"), Validation.Mandatory) &
                 validate($form.find("#Contact_Message"), Validation.Mandatory)
             );
     }
