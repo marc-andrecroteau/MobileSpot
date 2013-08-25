@@ -68,3 +68,7 @@ p,h1,h2,h3,h4,h5,h6 {
 .logo-header img {
     vertical-align: middle;
 }
+
+textarea{
+    -webkit-user-select: auto;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+}
