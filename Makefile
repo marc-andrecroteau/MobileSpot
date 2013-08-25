@@ -43,7 +43,8 @@ build-css:
 	CAT ${IN_CSS_ROOT}/jquery.mobile-1.3.2.css \
 		${IN_CSS_ROOT}/z.css \
 		${IN_CSS_ROOT}/jqm-icon-pack-2.0-original.css \
-		${IN_CSS_ROOT}/index.css > ${TMP_ROOT}/tmp.styles.css
+		${IN_CSS_ROOT}/index.css \
+		${IN_CSS_ROOT}/global.css > ${TMP_ROOT}/tmp.styles.css
 	#CP ${TMP_ROOT}/tmp.styles.css ${OUT_CSS}
 	${SQWISH} ${TMP_ROOT}/tmp.styles.css -o ${OUT_CSS}
 	@echo --\> Build CSS Completed Succesfully.
@@ -61,7 +62,9 @@ build-js:
 		${IN_JS_ROOT}/lib/jquery.mobile-1.3.2.js \
 		${IN_JS_ROOT}/lib/dust-core-2.0.0.min.js \
 		${IN_JS_ROOT}/app/init.js \
-		${IN_JS_ROOT}/app/login.js > ${TMP_ROOT}/tmp.js.js
+		${IN_JS_ROOT}/app/login.js \
+		${IN_JS_ROOT}/app/enum.js \
+		${IN_JS_ROOT}/app/help.js \ > ${TMP_ROOT}/tmp.js.js
 	#CP ${TMP_ROOT}/tmp.js.js ${OUT_JS}
 	${UGLIFY} ${TMP_ROOT}/tmp.js.js --output ${OUT_JS} --compress
 	@echo --\> Build JS Completed Succesfully.
@@ -78,6 +81,7 @@ build-index:
 		${IN_INDEX_ROOT}/home.html \
 		${IN_INDEX_ROOT}/login.html \
 		${IN_INDEX_ROOT}/spotlisting.html \
+		${IN_INDEX_ROOT}/help.html \
 		${IN_INDEX_ROOT}/footer.html > ${OUT_INDEX}
 	@echo --\> Build INDEX Completed Succesfully.
 
