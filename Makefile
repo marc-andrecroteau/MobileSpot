@@ -25,7 +25,7 @@ IN_JS_ROOT         = ./src/js
 IN_HTML_ROOT       = ./src/html
 
 TMP_ROOT = ./src
-HANDLEBARS_NAME = handlebars.js
+HANDLEBARS_NAME = tmp.handlebars.js
 
 OUT_CSS        = ./www/css/application.min.css
 OUT_HANDLEBARS = $(IN_JS_ROOT)/$(HANDLEBARS_NAME)
@@ -42,19 +42,15 @@ CSS_FILES = jquery.mobile-1.3.2.css \
 			index.css \
 			global.css
 
-HANDLEBARS_FILES = \
-			test.handlebars \
-			test2.handlebars
-
 JS_FILES =  lib/jquery-1.9.1.js \
 			app/mobile_init.js \
 			lib/jquery.mobile-1.3.2.js \
 			lib/handlebars.runtime.js \
 			$(HANDLEBARS_NAME) \
 			app/init.js \
+			app/enum.js \
 			app/login.js \
 			app/home.js \
-			app/enum.js \
 			app/help.js
 
 HTML_FILES= header.html \
@@ -65,7 +61,6 @@ HTML_FILES= header.html \
 			footer.html
 
 CSS_FILES        := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
-HANDLEBARS_FILES := $(HANDLEBARS_FILES:%=$(IN_HANDLEBARS_ROOT)/%)
 JS_FILES         := $(JS_FILES:%=$(IN_JS_ROOT)/%)
 HTML_FILES       := $(HTML_FILES:%=$(IN_HTML_ROOT)/%)
 
@@ -73,11 +68,10 @@ HTML_FILES       := $(HTML_FILES:%=$(IN_HTML_ROOT)/%)
 ## Build All Modules
 ##
 all: build-all build-css build-js build-html clean
-	@echo --\>
+	@echo
 	@echo --\> Build All Completed Succesfully.
 build-all:
-	@echo --\> Building All.
-	@echo --\>
+	@echo --\> Begin Build All.
 nojs: build-css build-html clean
 
 
@@ -86,32 +80,26 @@ nojs: build-css build-html clean
 ##
 css: build-css clean
 build-css:
-	@echo --\> Building CSS...
+	@echo
+	@echo --\> Begin Build CSS...
 	CAT $(CSS_FILES) > $(TMP_ROOT)/tmp.styles.css
 	$(SQWISH) $(TMP_ROOT)/tmp.styles.css -o $(OUT_CSS)
 	#CP $(TMP_ROOT)/tmp.styles.css $(OUT_CSS)
-	@echo --\> Build CSS Completed Succesfully.
+	@echo --\> End Build CSS.
 
 
 ##
 ## Build Javascript
 ##
 js: build-js clean
-build-js: build-handlebars
-	@echo --\> Building Javascript...
+build-js:
+	@echo
+	@echo --\> Begin Build Javascript...
+	$(HANDLEBARS) $(IN_HANDLEBARS_ROOT)/ > $(OUT_HANDLEBARS)
 	CAT $(JS_FILES) > $(TMP_ROOT)/tmp.js.js
 	$(UGLIFY) $(TMP_ROOT)/tmp.js.js --output $(OUT_JS)
 	#CP $(TMP_ROOT)/tmp.js.js $(OUT_JS)
-	@echo --\> Build Javascript Completed Succesfully.
-
-
-##
-## Build Handlebars Templates
-##
-build-handlebars:
-	@echo --\> Building Handlebars...
-	$(HANDLEBARS) $(HANDLEBARS_FILES) --output $(OUT_HANDLEBARS)
-	@echo --\> Build Handlebars Completed.
+	@echo --\> End Build Javascript.
 
 
 ##
@@ -119,14 +107,18 @@ build-handlebars:
 ##
 html: build-html clean
 build-html:
-	@echo --\> Building Application HTML...
+	@echo
+	@echo --\> Begin Build HTML...
 	CAT $(HTML_FILES) > $(OUT_HTML)
-	@echo --\> Build HTML Completed Succesfully.
+	@echo --\> End Build HTML.
 
 
 ##
 ## Clean Targets
 ##
 clean:
+	@echo
+	@echo --\> Begin Clean...
 	RM $(TMP_ROOT)/tmp.*
-	RM $(OUT_HANDLEBARS)
+	RM $(IN_JS_ROOT)/tmp.*
+	@echo --\> End Clean.
