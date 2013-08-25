@@ -9,8 +9,6 @@
 
 .ui-icon,
 .ui-icon-searchfield:after {
-	background: #666666;
-	background:  rgba(0,0,0,.4);
 	background-image: url('images/icons-18-white-pack.png');
 	background-repeat: no-repeat;
 	-moz-border-radius: 9px;
