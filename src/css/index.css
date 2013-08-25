@@ -70,5 +70,5 @@ p,h1,h2,h3,h4,h5,h6 {
 }
 
 textarea{
-    -webkit-user-select: auto;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    -webkit-user-select: auto !important;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
