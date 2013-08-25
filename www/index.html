@@ -23,10 +23,10 @@
 
 
 <div data-role="page" id="homepage" data-title="Home" data-theme="z">
-    <div data-role="header" id="homeheader" data-position="fixed" data-theme="z">
-        <a href="#homenav" id="homebtnnav" data-icon="menu" data-iconpos="notext" data-corners="false" data-theme="z">Menu</a>
-        <div style="text-align: right; line-height: 52px;" data-inline="true">
-            <img src="img/logo_header.png" style="vertical-align: middle" />
+    <div data-role="header" data-position="fixed" data-theme="z">
+        <a href="#homenav" data-icon="menu" data-iconpos="notext" data-corners="false" data-theme="z">Menu</a>
+        <div class="logo-header" data-inline="true">
+            <img src="img/logo_header.png" />
         </div>
     </div>
     <div data-role="content">
@@ -209,9 +209,9 @@
 
 
 <div data-role="page" id="spotlistingpage" data-title="Spot Listing" data-theme="z">
-    <div data-role="header" id="header" data-position="fixed" data-theme="z">
-        <a href="#homenav" id="homebtnnav" data-icon="menu" data-iconpos="notext" data-corners="false" data-theme="z">Menu</a>
-        <div align="center">
+    <div data-role="header" data-position="fixed" data-theme="z">
+        <a href="#spotlistingnav" data-icon="menu" data-iconpos="notext" data-corners="false" data-theme="z">Menu</a>
+        <div class="logo-header" data-inline="true">
             <img src="img/logo_header.png" />
         </div>
     </div>
@@ -242,7 +242,7 @@
             <li><a href="index.html">Sawyer Wakefield</a></li>
         </ul>
     </div>
-    <div data-role="panel" id="nav" data-display="reveal" data-dismissible="true" data-theme="a">
+    <div data-role="panel" id="spotlistingnav" data-display="reveal" data-dismissible="true" data-theme="a">
         <form>
             <label for="search" class="ui-hidden-accessible">Search</label>
             <input type="search" name="search" id="search" value="" placeholder="Search" data-mini="true" data-theme="z" />
@@ -260,9 +260,9 @@
 
 
 <div id="help" data-role="page" data-title="Help" data-theme="z">
-    <div data-role="header" id="header" data-position="fixed" data-theme="z">
-        <a href="#homenav" id="homebtnnav" data-icon="menu" data-iconpos="notext" data-corners="false" data-theme="z">Menu</a>
-        <div align="center">
+    <div data-role="header" data-position="fixed" data-theme="z">
+        <a href="#helpnav" data-icon="menu" data-iconpos="notext" data-corners="false" data-theme="z">Menu</a>
+        <div class="logo-header" data-inline="true">
             <img src="img/logo_header.png" />
         </div>
     </div>
@@ -291,7 +291,7 @@
             <button type="submit" data-theme="z" name="Contact_Submit">Submit</button>
         </form>
     </div>
-    <div data-role="panel" id="nav" data-display="reveal" data-dismissible="true" data-theme="a">
+    <div data-role="panel" id="helpnav" data-display="reveal" data-dismissible="true" data-theme="a">
         <form>
             <label for="search" class="ui-hidden-accessible">Search</label>
             <input type="search" name="search" id="search" value="" placeholder="Search" data-mini="true" data-theme="z" />
