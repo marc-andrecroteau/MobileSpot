@@ -1,4 +1,5 @@
 #!/usr/bin/make -f
+SHELL = /bin/sh
 #################################################################
 ## MobileSpot Makefile                                         ##
 ##                                                             ##
@@ -11,21 +12,25 @@
 ##
 ## Executables
 ##
-SQWISH = node node_modules/sqwish/bin/sqwish
-UGLIFY = node node_modules/uglify-js2/bin/uglifyjs2
+SQWISH     = node node_modules/sqwish/bin/sqwish
+HANDLEBARS = node node_modules/handlebars/bin/handlebars
+UGLIFY     = node node_modules/uglify-js2/bin/uglifyjs2
 
 ##
 ## Paths
 ##
-IN_CSS_ROOT = ./src/css
-IN_JS_ROOT = ./src/js
-IN_HTML_ROOT = ./src/html
+IN_CSS_ROOT        = ./src/css
+IN_HANDLEBARS_ROOT = ./src/handlebars
+IN_JS_ROOT         = ./src/js
+IN_HTML_ROOT       = ./src/html
 
 TMP_ROOT = ./src
+HANDLEBARS_NAME = handlebars.js
 
-OUT_CSS = ./www/css/application.min.css
-OUT_JS = ./www/js/application.min.js
-OUT_HTML = ./www/index.html
+OUT_CSS        = ./www/css/application.min.css
+OUT_HANDLEBARS = $(IN_JS_ROOT)/$(HANDLEBARS_NAME)
+OUT_JS         = ./www/js/application.min.js
+OUT_HTML       = ./www/index.html
 
 ##
 ## Source Files
@@ -37,25 +42,32 @@ CSS_FILES = jquery.mobile-1.3.2.css \
 			index.css \
 			global.css
 
+HANDLEBARS_FILES = \
+			test.handlebars \
+			test2.handlebars
+
 JS_FILES =  lib/jquery-1.9.1.js \
 			app/mobile_init.js \
 			lib/jquery.mobile-1.3.2.js \
-			lib/dust-core-2.0.0.min.js \
+			lib/handlebars.runtime.js \
+			$(HANDLEBARS_NAME) \
 			app/init.js \
 			app/login.js \
+			app/home.js \
 			app/enum.js \
 			app/help.js
 
 HTML_FILES= header.html \
-            home.html \
-            login.html \
-            spotlisting.html \
-            help.html \
-            footer.html
+			home.html \
+			login.html \
+			spotlisting.html \
+			help.html \
+			footer.html
 
-CSS_FILES  := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
-JS_FILES   := $(JS_FILES:%=$(IN_JS_ROOT)/%)
-HTML_FILES := $(HTML_FILES:%=$(IN_HTML_ROOT)/%)
+CSS_FILES        := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
+HANDLEBARS_FILES := $(HANDLEBARS_FILES:%=$(IN_HANDLEBARS_ROOT)/%)
+JS_FILES         := $(JS_FILES:%=$(IN_JS_ROOT)/%)
+HTML_FILES       := $(HTML_FILES:%=$(IN_HTML_ROOT)/%)
 
 ##
 ## Build All Modules
@@ -66,6 +78,7 @@ all: build-all build-css build-js build-html clean
 build-all:
 	@echo --\> Building All.
 	@echo --\>
+nojs: build-css build-html clean
 
 
 ##
@@ -84,12 +97,21 @@ build-css:
 ## Build Javascript
 ##
 js: build-js clean
-build-js:
+build-js: build-handlebars
 	@echo --\> Building Javascript...
 	CAT $(JS_FILES) > $(TMP_ROOT)/tmp.js.js
-	$(UGLIFY) $(TMP_ROOT)/tmp.js.js --output $(OUT_JS) --compress
+	$(UGLIFY) $(TMP_ROOT)/tmp.js.js --output $(OUT_JS)
 	#CP $(TMP_ROOT)/tmp.js.js $(OUT_JS)
-	@echo --\> Build JS Completed Succesfully.
+	@echo --\> Build Javascript Completed Succesfully.
+
+
+##
+## Build Handlebars Templates
+##
+build-handlebars:
+	@echo --\> Building Handlebars...
+	$(HANDLEBARS) $(HANDLEBARS_FILES) --output $(OUT_HANDLEBARS)
+	@echo --\> Build Handlebars Completed.
 
 
 ##
@@ -107,3 +129,4 @@ build-html:
 ##
 clean:
 	RM $(TMP_ROOT)/tmp.*
+	RM $(OUT_HANDLEBARS)
