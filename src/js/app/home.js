@@ -6,7 +6,7 @@ jQuery(document).on("ready", function() {
             { name: "Adélaïde Brochu", age: 88 },
             { name: "Germain Bélanger", age: 94 },
             { name: "Marie-George Pruneau", age: 78 },
-            { name: "Theodule Henley", age: 92 }
+            { name: "Théodule Henley", age: 92 }
         ]
     };
     var html = template(context);
