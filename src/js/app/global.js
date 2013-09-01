@@ -27,15 +27,6 @@ Validation = {
     Mandatory : 0
 };
 
-/*$(document).ready(function (){
-    if(jQuery("#menu").height() > jQuery("#container").height()) {
-
-        alert("ee");
-        jQuery("#menu").css("overflow", "scroll");
-    }
-
-});
-*/
 var panelTimer;
 jQuery(document).bind('panelopen', function(e, data) {
         var panelPosition = jQuery(document).scrollTop();
