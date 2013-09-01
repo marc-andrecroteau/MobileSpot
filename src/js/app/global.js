@@ -1,8 +1,3 @@
-jQuery(function() {
-    //FastClick.attach(document.body);
-});
-
-
 
 
 // MobileApp.js
