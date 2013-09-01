@@ -27,16 +27,14 @@ var MobileRouter = Backbone.Router.extend({
     home: function() {
         var view = new MobileViews.Home();
         view.model = {};
-        /*
-        view.model = {
+        /*{
             friends: [
                 { name: "Adélaïde Brochu", age: 88 },
                 { name: "Germain Bélanger", age: 94 },
                 { name: "Marie-George Pruneau", age: 78 },
                 { name: "Théodule Henley", age: 92 }
             ]
-        };
-        */
+        };*/
         view.render();
         this.changePage(view, true);
     },

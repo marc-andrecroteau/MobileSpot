@@ -54,8 +54,8 @@ JS_FILES =  lib/jquery-1.9.1.js \
 			app/help.js \
 			app/main.js
 
-CSS_FILES  := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
-JS_FILES   := $(JS_FILES:%=$(IN_JS_ROOT)/%)
+CSS_FILES := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
+JS_FILES  := $(JS_FILES:%=$(IN_JS_ROOT)/%)
 
 ##
 ## Build All Modules
