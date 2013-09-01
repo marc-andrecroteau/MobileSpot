@@ -12,12 +12,16 @@ var MobileRouter = Backbone.Router.extend({
     initialize: function() {
         this.panel = new MobileViews.Panel();
         this.panel.render();
+
+        this.header = new MobileViews.Header();
+        this.header.render();
     },
 
     routes: {
         "":         "home",
-        "spotlist": "spotlist",
-        "help":     "help"
+        "spotlisting": "spotlisting",
+        "help":     "help",
+        "menu":     "menu"
     },
 
     home: function() {
@@ -37,20 +41,40 @@ var MobileRouter = Backbone.Router.extend({
         this.changePage(view, true);
     },
 
-    spotlist: function() {
+    spotlisting: function() {
+        var view = new MobileViews.SpotListing();
 
+        view.model = {};
+        view.render();
+
+        this.changePage(view, true);
     },
 
     help: function() {
+        var view = new MobileViews.Help();
 
+        view.model = {};
+        view.render();
+
+        this.changePage(view, true);
+    },
+
+    menu: function() {
+        jQuery(this.panel.ui_id).panel("toggle");
     },
 
     changePage: function (page, refresh) {
+        //jQuery(this.panel.id).css("display", "none");
+
+
+
         page.$el.attr({ "data-role": "page", "data-theme": "z" });
         page.render();
+
+        page.$el.prepend(this.header.$el);
         page.$el.append(this.panel.$el);
         jQuery("body").append(page.$el);
-        var transition = jQuery.mobile.defaultPageTransition;
+        var transition = "slide";
         // We don't want to slide the first page
         if (this.firstPage) {
             transition = 'none';

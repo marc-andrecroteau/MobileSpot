@@ -10,8 +10,29 @@ var MobileViews = {
         },
 
         render: function() {
-            this.$el.html(this.template(this.model));
-            this.$el.append();
+            this.$el.html(this.template(this.model)).trigger('create');
+            return this;
+        }
+    }),
+
+    Help: Backbone.View.extend({
+        initialize: function() {
+            this.template = MobileViews.getTemplate("help");
+        },
+
+        render: function() {
+            this.$el.html(this.template(this.model)).trigger('create');
+            return this;
+        }
+    }),
+
+    SpotListing: Backbone.View.extend({
+        initialize: function() {
+            this.template = MobileViews.getTemplate("spotlisting");
+        },
+
+        render: function() {
+            this.$el.html(this.template(this.model)).trigger('create');
             return this;
         }
     }),
@@ -21,8 +42,21 @@ var MobileViews = {
     // TODO: load only one time at the beginning
     // TODO: find a way to include it everywhere.
     Panel: Backbone.View.extend({
+        ui_id: "#menu",
+
         initialize: function() {
             this.template = MobileViews.getTemplate("panel");
+        },
+
+        render: function() {
+            this.$el.html(this.template());
+            return this;
+        }
+    }),
+
+    Header: Backbone.View.extend({
+        initialize: function() {
+            this.template = MobileViews.getTemplate("header");
         },
 
         render: function() {
