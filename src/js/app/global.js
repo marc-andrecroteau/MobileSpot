@@ -1,4 +1,12 @@
 
+
+jQuery(function() {
+    FastClick.attach(document.body);
+});
+
+
+
+
 // MobileApp.js
 var MobileApp = function() {
     this.initialize = function() {

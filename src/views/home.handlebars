@@ -5,30 +5,29 @@
     <h1>MobileSpot</h1>
 </div>
 <div data-role="content">
-    <img src="img/logo_header.png" />
-    <p>Application welcome message here.</p>
-    <p>You need to login to continue.</p>
-    <a href="#">Login</a>
-    <br />
-    <br />
-    <br />
-    <ul data-role="listview">
-        {{#each friends}}
-        <li><a href="#">{{this.name}}, {{this.age}}</a></li>
-        {{/each}}
-    </ul>
+    <div style="text-align: center">
+        <br/>
+        <img src="img/logo_header.png"/>
+    </div>
+    <div style="width: 85%; margin: 0 auto;">
+        <br/>
+        <h4>Spotted something interesting? Share it with everyone!</h4>
+        <br/>
+        <br/>
+        <h4>You need to login to continue.</h4>
+        <br/>
+        <br/>
+        <ul data-role="listview" class="login-selection">
+            <li data-icon="grid"><a class="login-facebook" href="#">Login with Facebook</a></li>
+            <li data-icon="bars"><a class="login-google" href="#">Login with Google</a></li>
+        </ul>
+    </div>
 </div>
-
-<div data-role="panel" id="homenav" data-display="reveal" data-dismissible="true" data-theme="a">
-    <form>
-        <label for="homesearch" class="ui-hidden-accessible">Search</label>
-        <input type="search" name="search" id="homesearch" value="" placeholder="Search" data-mini="true" />
-    </form>
-    <br/>
-    <ul data-role="listview" data-theme="a">
-        <li><a href="index.html#homepage" data-transition="flow">Home</a></li>
-        <li><a href="index.html#loginpage" data-transition="flow">Notifications</a></li>
-        <li><a href="#">User Settings</a></li>
-        <li><a href="index.html#help" data-transition="flow">Help</a></li>
-    </ul>
+<!--
+<ul data-role="listview">
+    {//{#each friends}}
+    <li><a href="#">{//{this.name}}, {//{this.age}}</a></li>
+    {//{/each}}
+</ul>
+-->
 </div>

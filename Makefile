@@ -40,6 +40,7 @@ CSS_FILES = jquery.mobile-1.3.2.css \
 			index.css
 
 JS_FILES =  lib/jquery-1.9.1.js \
+			lib/fastclick.js \
 			app/mobile_init.js \
 			lib/jquery.mobile-1.3.2.js \
 			lib/json2.js \
@@ -48,6 +49,7 @@ JS_FILES =  lib/jquery-1.9.1.js \
 			lib/handlebars.runtime.js \
 			$(HANDLEBARS_FILENAME) \
 			app/global.js \
+			app/helpers.js \
 			app/views.js \
 			app/help.js \
 			app/main.js
