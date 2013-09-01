@@ -1,4 +1,14 @@
 
+// MobileApp.js
+var MobileApp = function() {
+    this.initialize = function() {
+        this.models = {};
+        this.panel = {};
+    };
+};
+
+
+
 
 String.prototype.format = function() {
     var args = arguments;
@@ -13,8 +23,8 @@ function defaultValue(variable, defaultValue) {
 }
 
 
-function XMLResponseObject() {
-    this.hasError = false;
-    this.errorText = "";
-    this.$data = "";
-}
+
+
+Validation = {
+    Mandatory : 0
+};

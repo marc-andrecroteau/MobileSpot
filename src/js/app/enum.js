@@ -1,3 +1,0 @@
-Validation = {
-    Mandatory : 0
-};

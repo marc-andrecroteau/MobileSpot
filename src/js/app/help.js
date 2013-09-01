@@ -1,3 +1,4 @@
+
     jQuery(document).on('pagebeforeshow', '#help', function(){
         jQuery("#contact-form").submit(function(event){
             event.preventDefault();

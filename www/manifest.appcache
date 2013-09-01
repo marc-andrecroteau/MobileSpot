@@ -1,10 +1,13 @@
 CACHE MANIFEST
-# 25-08-2013:v1
+# 31-08-2013:v1
 
 # Explicitly cached entries
 index.html
 css/application.min.css
 js/application.min.js
+phonegap.js
+cdv-plugin-fb-connect.js
+facebook-js-sdk.js
 
 # page that will be displayed if the user is offline
 FALLBACK:

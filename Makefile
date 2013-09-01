@@ -13,24 +13,22 @@ SHELL = /bin/sh
 ## Executables
 ##
 SQWISH     = node node_modules/sqwish/bin/sqwish
-HANDLEBARS = node node_modules/handlebars/bin/handlebars
 UGLIFY     = node node_modules/uglify-js2/bin/uglifyjs2
+HANDLEBARS = node node_modules/handlebars/bin/handlebars
 
 ##
 ## Paths
 ##
-IN_CSS_ROOT        = ./src/css
-IN_HANDLEBARS_ROOT = ./src/handlebars
-IN_JS_ROOT         = ./src/js
-IN_HTML_ROOT       = ./src/html
+IN_CSS_ROOT   = ./src/css
+IN_JS_ROOT    = ./src/js
+IN_VIEWS_ROOT = ./src/views
 
 TMP_ROOT = ./src
-HANDLEBARS_NAME = tmp.handlebars.js
+HANDLEBARS_FILENAME = tmp.handlebars.js
 
 OUT_CSS        = ./www/css/application.min.css
-OUT_HANDLEBARS = $(IN_JS_ROOT)/$(HANDLEBARS_NAME)
+OUT_HANDLEBARS = $(IN_JS_ROOT)/$(HANDLEBARS_FILENAME)
 OUT_JS         = ./www/js/application.min.js
-OUT_HTML       = ./www/index.html
 
 ##
 ## Source Files
@@ -38,36 +36,29 @@ OUT_HTML       = ./www/index.html
 ##
 CSS_FILES = jquery.mobile-1.3.2.css \
 			z.css \
-			jqm-icon-pack-2.0-original.css \
-			index.css \
-			global.css
+			global.css \
+			index.css
 
 JS_FILES =  lib/jquery-1.9.1.js \
 			app/mobile_init.js \
 			lib/jquery.mobile-1.3.2.js \
+			lib/json2.js \
+			lib/underscore.js \
+			lib/backbone.js \
 			lib/handlebars.runtime.js \
-			$(HANDLEBARS_NAME) \
-			app/init.js \
-			app/enum.js \
-			app/login.js \
-			app/home.js \
-			app/help.js
-
-HTML_FILES= header.html \
-			home.html \
-			login.html \
-			spotlisting.html \
-			help.html \
-			footer.html
+			$(HANDLEBARS_FILENAME) \
+			app/global.js \
+			app/views.js \
+			app/help.js \
+			app/main.js
 
 CSS_FILES  := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
 JS_FILES   := $(JS_FILES:%=$(IN_JS_ROOT)/%)
-HTML_FILES := $(HTML_FILES:%=$(IN_HTML_ROOT)/%)
 
 ##
 ## Build All Modules
 ##
-all: build-all build-css build-js build-html
+all: build-all build-css build-js clean
 	@echo
 	@echo --\> Build All Completed Succesfully.
 build-all:
@@ -82,8 +73,8 @@ build-css:
 	@echo
 	@echo --\> Begin Build CSS...
 	CAT $(CSS_FILES) > $(TMP_ROOT)/tmp.styles.css
-	$(SQWISH) $(TMP_ROOT)/tmp.styles.css -o $(OUT_CSS)
-	#CP $(TMP_ROOT)/tmp.styles.css $(OUT_CSS)
+	#$(SQWISH) $(TMP_ROOT)/tmp.styles.css -o $(OUT_CSS)
+	CP $(TMP_ROOT)/tmp.styles.css $(OUT_CSS)
 	@echo --\> End Build CSS.
 
 
@@ -94,22 +85,11 @@ js: build-js clean
 build-js:
 	@echo
 	@echo --\> Begin Build Javascript...
-	$(HANDLEBARS) $(IN_HANDLEBARS_ROOT)/ > $(OUT_HANDLEBARS)
+	$(HANDLEBARS) $(IN_VIEWS_ROOT)/ > $(OUT_HANDLEBARS)
 	CAT $(JS_FILES) > $(TMP_ROOT)/tmp.js.js
-	$(UGLIFY) $(TMP_ROOT)/tmp.js.js --output $(OUT_JS)
-	#CP $(TMP_ROOT)/tmp.js.js $(OUT_JS)
+	#$(UGLIFY) $(TMP_ROOT)/tmp.js.js --output $(OUT_JS)
+	CP $(TMP_ROOT)/tmp.js.js $(OUT_JS)
 	@echo --\> End Build Javascript.
-
-
-##
-## Build HTML File
-##
-html: build-html clean
-build-html:
-	@echo
-	@echo --\> Begin Build HTML...
-	CAT $(HTML_FILES) > $(OUT_HTML)
-	@echo --\> End Build HTML.
 
 
 ##
