@@ -15,6 +15,7 @@ var MobileRouter = Backbone.Router.extend({
 
         this.header = new MobileViews.Header();
         this.header.render();
+        this.firstPage = true;
     },
 
     routes: {

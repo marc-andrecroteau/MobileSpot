@@ -1,5 +1,5 @@
 jQuery(function() {
-    FastClick.attach(document.body);
+    //FastClick.attach(document.body);
 });
 
 
