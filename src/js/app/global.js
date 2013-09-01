@@ -35,7 +35,7 @@ Validation = {
     }
 
 });
-
+*/
 var panelTimer;
 jQuery(document).bind('panelopen', function(e, data) {
         var panelPosition = jQuery(document).scrollTop();
@@ -45,6 +45,5 @@ jQuery(document).bind('panelopen', function(e, data) {
 });
 
 jQuery(document).bind('panelclose', function(e, data) {
-    //clearInterval(panelTimer);
+    clearInterval(panelTimer);
 });
-*/
