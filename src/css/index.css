@@ -82,3 +82,18 @@ p,h1,h2,h3,h4,h5,h6 {
 .login-google {
     background: transparent no-repeat 2px 5px url(../img/menu-list-black.png);
 }
+
+
+
+.ui-panel.ui-panel-open-a {
+    position:fixed;
+}
+.ui-panel-inner-a {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}

@@ -45,6 +45,6 @@ var MobileRouter = Backbone.Router.extend({
         page.render();
         jQuery("#menu").panel("close");
         jQuery("#container").html(page.$el);
-        jQuery('div[data-role="page"]').trigger("create");
+        jQuery('div[data-role="page"]').trigger("pagecreate");
     }
 });
