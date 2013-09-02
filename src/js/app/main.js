@@ -7,6 +7,8 @@ jQuery(document).on("ready", function() {
     var mobilespot = new MobileApp();
     mobilespot.router = new MobileRouter();
     Backbone.history.start();
+
+    $(".ui-page").unbind("focusin focusout");
 });
 
 
@@ -61,7 +63,7 @@ var MobileRouter = Backbone.Router.extend({
 });
 
 
-
+/*
 jQuery(document).on("pagecreate", "#login", function() {
     alert("suck me");
     try {
@@ -94,13 +96,14 @@ FB.Event.subscribe('auth.sessionChange', function(response) {
 FB.Event.subscribe('auth.statusChange', function(response) {
     alert('auth.statusChange event');
 });
-
+*/
 
 /*function getSession() {
  alert("session: " + JSON.stringify(FB.getSession()));
  }
  */
 
+/*
 function getLoginStatus() {
     FB.getLoginStatus(function(response) {
         if (response.status == 'connected') {
@@ -197,3 +200,4 @@ function publishStoryFriend() {
         FB.ui(params, function(obj) { console.log(obj);});
     }
 }
+*/
