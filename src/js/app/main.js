@@ -1,5 +1,8 @@
 
 
+/*-----------------------------------------------
+ * Main Entry Point
+ *---------------------------------------------*/
 jQuery(document).on("ready", function() {
     var mobilespot = new MobileApp();
     mobilespot.router = new MobileRouter();

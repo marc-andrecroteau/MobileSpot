@@ -1,6 +1,8 @@
 
 
-// MobileApp.js
+/*-----------------------------------------------
+ * MobileApp Object
+ *---------------------------------------------*/
 var MobileApp = function() {
     this.initialize = function() {
         this.models = {};
@@ -10,7 +12,9 @@ var MobileApp = function() {
 
 
 
-
+/*-----------------------------------------------
+ * Utility Methods
+ *---------------------------------------------*/
 String.prototype.format = function() {
     var args = arguments;
     return this.replace(/{(\d+)}/g, function(match, number) {
@@ -18,16 +22,19 @@ String.prototype.format = function() {
     });
 };
 
-
 function defaultValue(variable, defaultValue) {
     return (variable != null) && (typeof variable !== 'undefined') ? (variable) : (defaultValue);
 }
+
 
 Validation = {
     Mandatory : 0
 };
 
 
+/*-----------------------------------------------
+ * Fix for Panel Indenpendent Scroll
+ *---------------------------------------------*/
 var panelTimer;
 jQuery(document).bind('panelopen', function(e, data) {
         var panelPosition = jQuery(document).scrollTop();

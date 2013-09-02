@@ -1,8 +1,12 @@
+
+/*-----------------------------------------------
+ * Handlebars Helpers
+ *---------------------------------------------*/
 jQuery(function() {
 
-    // Prevent escaping the Panel html
-    Handlebars.registerHelper("panel", function(panel, options) {
-        return new Handlebars.SafeString(panel);
+    // Outputs unescaped HTML
+    Handlebars.registerHelper("html", function(data, options) {
+        return new Handlebars.SafeString(data);
     });
 
 });

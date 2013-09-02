@@ -1,3 +1,8 @@
+
+/*-----------------------------------------------
+ * Initialize jQuery Mobile Settings
+ * This needs to be loaded before jQuery Mobile
+ *---------------------------------------------*/
 jQuery(document).on("mobileinit", function(){
     //jQuery.mobile.allowCrossDomainPages = true;
     jQuery.mobile.buttonMarkup.hoverDelay = 20;

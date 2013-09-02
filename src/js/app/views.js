@@ -1,4 +1,7 @@
 
+/*-----------------------------------------------
+ * Application Views
+ *---------------------------------------------*/
 var MobileViews = {
     getTemplate: function(name) {
         return Handlebars.templates[name];

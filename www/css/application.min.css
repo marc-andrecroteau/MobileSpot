@@ -3369,7 +3369,7 @@ div.ui-slider-switch.ui-mini {
     }
 }
 /* Swatches */
-/* A
+/* Z
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-z {
 	border: 1px solid #0071bc /*{a-bar-border}*/;
@@ -4160,6 +4160,83 @@ a.ui-link-inherit {
 	outline-style: auto;
 }
 
+
+/*-----------------------------------------------
+ * Global CSS
+ *---------------------------------------------*/
+* {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+}
+
+body { }
+
+p,h1,h2,h3,h4,h5,h6 {
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+
+/* Portrait layout (default) */
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+
+}
+
+
+
+/*-----------------------------------------------
+ * jQuery Mobile Overrides
+ *---------------------------------------------*/
+.ui-panel-inner {
+    padding: 3px 15px 15px 15px;
+    /*-----------------------------------*/
+    /* Fix for Panel Independent Scroll  */
+    /*-----------------------------------*/
+    position: absolute;                /**/
+    top: 1px;                          /**/
+    left: 0;                           /**/
+    right: 0;                          /**/
+    bottom: 0;                         /**/
+    overflow: scroll;                  /**/
+    -webkit-overflow-scrolling: touch; /**/
+    /*-----------------------------------*/
+}
+
+
+
+/*-----------------------------------------------
+ * Utility Classes
+ *---------------------------------------------*/
+.blink {
+    animation: fade 3000ms infinite;
+    -webkit-animation: fade 3000ms infinite;
+}
+.show {
+    display: block;
+    visibility: visible;
+}
+.hide {
+    display: none;
+    visibility: hidden;
+}
+.align-center {
+    text-align: center;
+}
 .error {
     color: #CC0000;
 }
@@ -4169,73 +4246,13 @@ a.ui-link-inherit {
 }
 
 
-* {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+/*-----------------------------------------------
+ * Home Page
+ *---------------------------------------------*/
+.home-middle {
+    width: 85%;
+    margin: 0 auto;
 }
-
-body {
-
-}
-
-/* Portrait layout (default) */
-
-
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-
-}
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-
-.hide {
-    display:none;
-}
-
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
-}
-
-/*===================================================================*/
-
-.ui-panel-inner {
-    padding: 3px 15px 15px 15px;
-    position: absolute;
-    top: 1px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-
-p,h1,h2,h3,h4,h5,h6 {
-    padding: 0;
-    margin: 0;
-}
-
-.logo-header {
-    text-align: right;
-    line-height: 52px;
-}
-
-.logo-header img {
-    vertical-align: middle;
-}
-
 .login-selection .ui-li .ui-btn-inner a.ui-link-inherit,
 .login-selection .ui-li-static.ui-li {
     padding-left: 33px;
@@ -4246,4 +4263,3 @@ p,h1,h2,h3,h4,h5,h6 {
 .login-google {
     background: transparent no-repeat 2px 5px url(../img/menu-list-black.png);
 }
-
