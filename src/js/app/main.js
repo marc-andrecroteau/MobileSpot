@@ -7,8 +7,6 @@ jQuery(document).on("ready", function() {
     var mobilespot = new MobileApp();
     mobilespot.router = new MobileRouter();
     Backbone.history.start();
-
-    $(".ui-page").unbind("focusin focusout");
 });
 
 

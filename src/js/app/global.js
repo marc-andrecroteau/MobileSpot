@@ -33,7 +33,7 @@ Validation = {
 
 
 /*-----------------------------------------------
- * Fix for Panel Indenpendent Scroll
+ * Fix for Panel Independent Scroll
  *---------------------------------------------*/
 var panelTimer;
 jQuery(document).bind('panelopen', function(e, data) {
@@ -42,7 +42,15 @@ jQuery(document).bind('panelopen', function(e, data) {
             jQuery(document).scrollTop(panelPosition);
         }, 20);
 });
-
 jQuery(document).bind('panelclose', function(e, data) {
     clearInterval(panelTimer);
+});
+
+
+jQuery(document).on("ready", function() {
+    /*-------------------------------------------
+     * Fix for Search Box Focus Triggering
+     * Header slide animation
+     *-----------------------------------------*/
+    $(".ui-page").unbind("focusin focusout");
 });
