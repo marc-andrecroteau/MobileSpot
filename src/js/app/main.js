@@ -106,7 +106,7 @@ function getLoginStatus() {
         if (response.status == 'connected') {
             alert("logged in");
         } else {
-            alert(response.status);
+            alert("not logged in");
         }
     });
 }
@@ -151,7 +151,7 @@ function logout() {
 function login() {
     FB.login(
         function(response) {
-            if (response.session) {
+            if (response.authResponse) {
                 alert('logged in');
             } else {
                 alert('not logged in');
