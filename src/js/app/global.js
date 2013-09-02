@@ -27,6 +27,7 @@ Validation = {
     Mandatory : 0
 };
 
+
 var panelTimer;
 jQuery(document).bind('panelopen', function(e, data) {
         var panelPosition = jQuery(document).scrollTop();
