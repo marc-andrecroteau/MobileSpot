@@ -9,6 +9,7 @@ var MobileViews = {
 
     Home: Backbone.View.extend({
         initialize: function() {
+            this.page_id = "home";
             this.template = MobileViews.getTemplate("home");
         },
 
@@ -20,7 +21,20 @@ var MobileViews = {
 
     Help: Backbone.View.extend({
         initialize: function() {
+            this.page_id = "help";
             this.template = MobileViews.getTemplate("help");
+        },
+
+        render: function() {
+            this.$el.html(this.template(this.model));
+            return this;
+        }
+    }),
+
+    Login: Backbone.View.extend({
+        initialize: function() {
+            this.page_id = "login";
+            this.template = MobileViews.getTemplate("login");
         },
 
         render: function() {
@@ -31,6 +45,7 @@ var MobileViews = {
 
     SpotListing: Backbone.View.extend({
         initialize: function() {
+            this.page_id = "spotlisting";
             this.template = MobileViews.getTemplate("spotlisting");
         },
 
