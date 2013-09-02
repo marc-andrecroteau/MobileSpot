@@ -104,9 +104,9 @@ FB.Event.subscribe('auth.statusChange', function(response) {
 function getLoginStatus() {
     FB.getLoginStatus(function(response) {
         if (response.status == 'connected') {
-            alert(response.status);
+            alert("logged in");
         } else {
-            alert('not logged in');
+            alert(response.status);
         }
     });
 }
