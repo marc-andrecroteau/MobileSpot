@@ -4570,7 +4570,7 @@
                 }
             }
 
-            $("#header #menubadge").css("float", "right");
+            //$("#header #menubadge").css("float", "right");
             this.setBackButtonVisibility(false);
             if (this.history.length === 0) {
                 this.setBackButtonVisibility(false);
