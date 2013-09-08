@@ -2779,7 +2779,7 @@
                     //android bug workaround for UI
                     if (!this.isFocused_ && !this.justBlurred_) {
                         //this.log("enter edit mode");
-                        //$.trigger(this, 'enter-edit', [e.target]);
+                        $.trigger(this, 'enter-edit', [e.target]);
                         //fire / preview reshape event
                         if ($.os.ios) {
                             var that = this;
