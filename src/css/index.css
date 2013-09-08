@@ -32,6 +32,10 @@
     border-top: solid 1px #A6A6A6;
 }
 #navmenu .list li {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /*padding-top: 10px;
+    padding-bottom: 10px;*/
+}
+#navmenu .list > li > a {
+    padding-top: 13px;
+    padding-bottom: 13px;
 }
