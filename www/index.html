@@ -1,69 +1,76 @@
 <!DOCTYPE html>
-<html manifest="manifest.appcache" class="ui-mobile-rendering">
+<html manifest="manifest.appcache">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>OnTheSpot Mobile</title>
     <link rel="stylesheet" href="css/application.min.css" />
     <link rel="shortcut icon" href="img/icons/webapp/icon64.png">
+    <script src="cordova.js"></script>
+    <script src="cdv-plugin-fb-connect.js"></script>
+    <script src="facebook-js-sdk.js"></script>
+    <!-- Phonegap Debugger -->
+    <!--<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>-->
+    <!--<script src="http://debug.build.phonegap.com/target/target-script-min.js#onthespot-mobile-kaven-vm01"></script>-->
+    <script src="js/application.min.js"></script>
 </head>
 
 <body>
-<div data-role="page" data-theme="z">
-    <div data-role="header" data-position="fixed" data-theme="z">
-        <a href="#menu" data-icon="bars" data-iconpos="notext">Menu</a>
-        <h1>ON THA SPOT</h1>
+<div id="afui">
+    <div id="header">
+        <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
     </div>
+    <div id="content">
 
-    <div id="container" data-role="content"></div>
+        <div id="main" title="ON THE SPOT" class="panel" selected="true">
+            <div style="text-align: center;">
+                <h2 style="margin-top: 15px;">Welcome page</h2>
+                <p>Welcome bla bla bla, you need to login</p>
+            </div>
+        </div>
 
-    <div data-role="panel" id="menu" data-animate="true" data-position-fixed="true" data-display="reveal" data-dismissible="true" data-theme="a">
-        <form>
-            <label for="homesearch" class="ui-hidden-accessible">Search</label>
-            <input type="search" name="search" id="homesearch" value="" placeholder="Search" data-mini="true" />
-        </form>
-        <br/>
-        <ul data-role="listview" data-theme="a">
-            <li><a href="#">Home</a></li>
-            <li><a href="#spotlisting">Notifications</a></li>
-            <li><a href="#">User Settings</a></li>
-            <li><a href="#login">Login Tests</a></li>
+        <div id="notifications" title="Notifications" class="panel">
+            <h2>Notifications</h2>
+            <a href="#main">main</a>
+        </div>
+
+        <div id="favorites" title="Favorites" class="panel">
+        </div>
+
+        <div id="spotdetails" title="Spot Details" class="panel">
+        </div>
+
+        <div id="spotnew" title="New Spot" class="panel">
+        </div>
+
+        <div id="spotlist" title="Spot List" class="panel">
+        </div>
+
+        <div id="userprofile" title="User Profile" class="panel">
+        </div>
+
+        <div id="help" title="Help" class="panel">
+        </div>
+
+        <div id="contact" title="Contact" class="panel">
+        </div>
+
+    </div>
+    <nav id="navmenu">
+        <input type="search" id="search" placeholder="Search..." />
+        <ul class="list">
+            <li class="divider search-divider"></li>
+            <li><a href="#main">Home</a></li>
+            <li><a href="#notifications">Notifications</a></li>
+            <li><a href="#userprofile">User Profile</a></li>
+            <li><a href="#">Login Tests</a></li>
+            <li class="divider"></li>
             <li><a href="#help">Help</a></li>
-            <li><a href="#" data-transition="flow">Home</a></li>
-            <li><a href="#spotlisting" data-transition="flow">Notifications</a></li>
-            <li><a href="#">User Settings</a></li>
-            <li><a href="#help" data-transition="flow">Help</a></li>
-            <li><a href="#" data-transition="flow">Home</a></li>
-            <li><a href="#spotlisting" data-transition="flow">Notifications</a></li>
-            <li><a href="#">User Settings</a></li>
-            <li><a href="#help" data-transition="flow">Help</a></li>
-            <li><a href="#" data-transition="flow">Home</a></li>
-            <li><a href="#spotlisting" data-transition="flow">Notifications</a></li>
-            <li><a href="#">User Settings</a></li>
-            <li><a href="#help" data-transition="flow">Help</a></li>
-            <li><a href="#" data-transition="flow">Home</a></li>
-            <li><a href="#spotlisting" data-transition="flow">Notifications</a></li>
-            <li><a href="#">User Settings</a></li>
-            <li><a href="#help" data-transition="flow">Help</a></li>
-            <li><a href="#" data-transition="flow">Home</a></li>
-            <li><a href="#spotlisting" data-transition="flow">Notifications</a></li>
-            <li><a href="#">User Settings</a></li>
-            <li><a href="#help" data-transition="flow">Help</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-    </div>
+    </nav>
 </div>
 </body>
-
-<!--<script src="cordova.js"></script>-->
-<script src="cordova.js"></script>
-<script src="cdv-plugin-fb-connect.js"></script>
-<script src="facebook-js-sdk.js"></script>
-<script src="js/application.min.js"></script>
-<!-- Phonegap Debugger -->
-<!--<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>-->
-<!--<script src="http://debug.build.phonegap.com/target/target-script-min.js#onthespot-mobile-kaven-vm01"></script>-->
-
 </html>

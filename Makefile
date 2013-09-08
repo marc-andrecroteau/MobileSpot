@@ -34,23 +34,18 @@ OUT_JS         = ./www/js/application.min.js
 ## Source Files
 ## The order in which files are included is important.
 ##
-CSS_FILES = jquery.mobile-1.3.2.css \
-			z.css \
+CSS_FILES = icons.css \
+			af.ui.css \
 			global.css \
 			index.css
 
-JS_FILES =  lib/jquery-1.9.1.js \
-			app/mobile_init.js \
-			lib/jquery.mobile-1.3.2.js \
-			lib/json2.js \
+JS_FILES =  lib/appframework.js \
+			lib/appframework.ui.js \
 			lib/underscore.js \
 			lib/backbone.js \
 			lib/handlebars.runtime.js \
 			$(HANDLEBARS_FILENAME) \
 			app/global.js \
-			app/helpers.js \
-			app/views.js \
-			app/help.js \
 			app/main.js
 
 CSS_FILES := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)

@@ -5,7 +5,7 @@ CACHE MANIFEST
 index.html
 css/application.min.css
 js/application.min.js
-phonegap.js
+cordova.js
 cdv-plugin-fb-connect.js
 facebook-js-sdk.js
 

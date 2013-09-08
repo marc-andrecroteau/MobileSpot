@@ -1,20 +1,28 @@
 
 
-/*-----------------------------------------------
- * MobileApp Object
- *---------------------------------------------*/
-var MobileApp = function() {
-    this.initialize = function() {
-        this.models = {};
-        this.panel = {};
-    };
+//-----------------------------------------------
+// Global Properties and Overrides
+//-----------------------------------------------
+var webRoot = "./";
+$.ui.autoLaunch = false; // Prevents application running right away to show a splashscreen.
+
+// This function runs when the body is loaded.
+var init = function () {
+    // TODO: Put back delays and implement splash screen
+    //window.setTimeout(function () {
+        $.ui.showBackButton = false;
+        $.ui.launch();
+        $.ui.removeFooterMenu();
+    //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
 };
+document.addEventListener("DOMContentLoaded", init, false);
 
 
 
-/*-----------------------------------------------
- * Utility Methods
- *---------------------------------------------*/
+
+//-----------------------------------------------
+// Utility Methods
+//-----------------------------------------------
 String.prototype.format = function() {
     var args = arguments;
     return this.replace(/{(\d+)}/g, function(match, number) {
@@ -26,31 +34,19 @@ function defaultValue(variable, defaultValue) {
     return (variable != null) && (typeof variable !== 'undefined') ? (variable) : (defaultValue);
 }
 
+function showHide(obj, objToHide) {
+    var el = $("#" + objToHide)[0];
+    if (obj.className == "expanded") {
+        obj.className = "collapsed";
+    } else {
+        obj.className = "expanded";
+    }
+    $(el).toggle();
+}
+
+
+
 
 Validation = {
     Mandatory : 0
 };
-
-
-/*-----------------------------------------------
- * Fix for Panel Independent Scroll
- *---------------------------------------------*/
-var panelTimer;
-jQuery(document).bind('panelopen', function(e, data) {
-        var panelPosition = jQuery(document).scrollTop();
-        panelTimer = setInterval(function() {
-            jQuery(document).scrollTop(panelPosition);
-        }, 20);
-});
-jQuery(document).bind('panelclose', function(e, data) {
-    clearInterval(panelTimer);
-});
-
-
-jQuery(document).on("ready", function() {
-    /*-------------------------------------------
-     * Fix for Search Box Focus Triggering
-     * Header slide animation
-     *-----------------------------------------*/
-    $(".ui-page").unbind("focusin focusout");
-});

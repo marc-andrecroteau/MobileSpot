@@ -17,3 +17,21 @@
 .login-google {
     background: transparent no-repeat 2px 5px url(../img/menu-list-black.png);
 }
+
+
+/*-----------------------------------------------
+ * Navigation Menu (Left Side Panel)
+ *---------------------------------------------*/
+#navmenu #search {
+    margin: 5px 2% 5px 2%;
+    width: 96%;
+    height: 35px;
+    font-size: 14px;
+}
+#afui #navmenu .list .search-divider {
+    border-top: solid 1px #A6A6A6;
+}
+#navmenu .list li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
