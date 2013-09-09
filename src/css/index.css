@@ -7,10 +7,6 @@
     width: 85%;
     margin: 0 auto;
 }
-.login-selection .ui-li .ui-btn-inner a.ui-link-inherit,
-.login-selection .ui-li-static.ui-li {
-    padding-left: 33px;
-}
 .login-facebook {
     background: transparent no-repeat 2px 5px url(../img/menu-icons-black.png);
 }

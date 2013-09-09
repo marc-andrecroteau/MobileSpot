@@ -37,25 +37,6 @@ p,h1,h2,h3,h4,h5,h6 {
 
 
 
-/*-----------------------------------------------
- * jQuery Mobile Overrides
- *---------------------------------------------*/
-.ui-panel-inner {
-    padding: 3px 15px 15px 15px;
-    /*-----------------------------------*/
-    /* Fix for Panel Independent Scroll  */
-    /*-----------------------------------*/
-    position: absolute;                /**/
-    top: 1px;                          /**/
-    left: 0;                           /**/
-    right: 0;                          /**/
-    bottom: 0;                         /**/
-    overflow: scroll;                  /**/
-    -webkit-overflow-scrolling: touch; /**/
-    /*-----------------------------------*/
-}
-
-
 
 /*-----------------------------------------------
  * Utility Classes
@@ -76,9 +57,5 @@ p,h1,h2,h3,h4,h5,h6 {
     text-align: center;
 }
 .error {
-    color: #CC0000;
-}
-
-.display-none {
     color: #CC0000;
 }

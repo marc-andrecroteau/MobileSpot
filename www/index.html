@@ -20,20 +20,22 @@
 <body>
 <div id="afui">
     <div id="header">
-        <a id="menubadge" onclick="af.ui.toggleSideMenu();" class="menuButton"></a>
+        <a id="menubadge" onclick="$.ui.toggleSideMenu();" class="menuButton"></a>
     </div>
     <div id="content">
 
-        <div id="main" title="ON THE SPOT" class="panel" selected="true">
+        <div id="login" title="ON THE SPOT LOGIN" class="panel" selected="true">
             <div style="text-align: center;">
-                <h2 style="margin-top: 15px;">Welcome page</h2>
+                <h2 style="margin-top: 15px;">Login page</h2>
                 <p>Welcome bla bla bla, you need to login</p>
             </div>
         </div>
 
+        <div id="myspot" title="My Spot" class="panel">
+        </div>
+
         <div id="notifications" title="Notifications" class="panel">
             <h2>Notifications</h2>
-            <a href="#main">main</a>
         </div>
 
         <div id="favorites" title="Favorites" class="panel">
@@ -51,7 +53,7 @@
         <div id="userprofile" title="User Profile" class="panel">
         </div>
 
-        <div id="help" title="Help" class="panel">
+        <div id="faq" title="F.A.Q." class="panel">
         </div>
 
         <div id="contact" title="Contact" class="panel">
@@ -59,16 +61,18 @@
 
     </div>
     <nav id="navmenu">
+        <div style="padding: 5px;">
+            <input type="search" id="search" placeholder="Search..." />
+        </div>
         <ul class="list">
-            <li class="search-item"><input type="search" id="search" placeholder="Search..." /></li>
-            <li class="divider"></li>
-            <li><a href="#main">Home</a></li>
+            <li class="divider">Menu</li>
+            <li><a href="#login">Home</a></li>
             <li><a href="#notifications">Notifications</a></li>
             <li><a href="#userprofile">User Profile</a></li>
             <li><a href="#">Login Tests</a></li>
-            <li class="divider"></li>
-            <li><a href="#help">Help</a></li>
+            <li><a href="#faq">F.A.Q.</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li class="divider"></li>
         </ul>
     </nav>
 </div>
