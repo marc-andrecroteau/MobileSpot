@@ -22,18 +22,16 @@
 /*-----------------------------------------------
  * Navigation Menu (Left Side Panel)
  *---------------------------------------------*/
+#navmenu li.search-item {
+    padding: 5px;
+}
 #navmenu #search {
-    margin: 5px 2% 5px 2%;
-    width: 96%;
+    margin: 0;
     height: 35px;
     font-size: 14px;
 }
 #afui #navmenu .list .search-divider {
     border-top: solid 1px #A6A6A6;
-}
-#navmenu .list li {
-    /*padding-top: 10px;
-    padding-bottom: 10px;*/
 }
 #navmenu .list > li > a {
     padding-top: 13px;

@@ -20,7 +20,7 @@
 <body>
 <div id="afui">
     <div id="header">
-        <a id="menubadge" onclick="af.ui.toggleSideMenu(); setTimeout(function() { $('.list li:first a').focus() }, 10);" class="menuButton"></a>
+        <a id="menubadge" onclick="af.ui.toggleSideMenu();" class="menuButton"></a>
     </div>
     <div id="content">
 
@@ -59,10 +59,9 @@
 
     </div>
     <nav id="navmenu">
-        <a class="button">.</a>
-        <input type="search" id="search" placeholder="Search..." />
         <ul class="list">
-            <li class="divider search-divider"></li>
+            <li class="search-item"><input type="search" id="search" placeholder="Search..." /></li>
+            <li class="divider"></li>
             <li><a href="#main">Home</a></li>
             <li><a href="#notifications">Notifications</a></li>
             <li><a href="#userprofile">User Profile</a></li>
