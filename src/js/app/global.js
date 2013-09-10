@@ -17,7 +17,7 @@ var init = function () {
     //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
 };
 // Allow testing in web browser.
-document.addEventListener((isPhoneGap()) ? "deviceready" : "DOMContentLoaded", init, false);
+document.addEventListener((isPhonegapLoaded()) ? "deviceready" : "DOMContentLoaded", init, false);
 
 
 
