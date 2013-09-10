@@ -45,12 +45,17 @@ function showHide(obj, objToHide) {
     $(el).toggle();
 }
 
-function isPhoneGap() {
-    return (typeof(PhoneGap) != 'undefined' || typeof(cordova) != 'undefined')
+// Verify that cordoja.js or phonegap.js is loaded.
+function isPhonegapLoaded() {
+    return ((typeof(PhoneGap) != 'undefined') || (typeof(cordova) != 'undefined'))
         && /^file:\/{3}[^\/]/i.test(window.location.href)
         && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
 }
 
+// Verify that both cdv-plugin-fb-connect.js and facebook-js-sdk.js are included.
+function isFacebookPluginLoaded() {
+    return (typeof(CDV) != 'undefined') && (typeof(FB) != 'undefined');
+}
 
 
 Validation = {
