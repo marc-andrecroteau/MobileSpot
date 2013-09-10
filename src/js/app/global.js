@@ -8,6 +8,7 @@ $.ui.autoLaunch = false; // Prevents application running right away to show a sp
 
 // This function runs when the body is loaded.
 var init = function () {
+    alert("suce1");
     // TODO: Put back delays and implement splash screen
     //window.setTimeout(function () {
         $.ui.showBackButton = false;
@@ -16,8 +17,11 @@ var init = function () {
         $.ui.removeFooterMenu();
     //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
 };
+var init2 = function() {
+    alert("suce2");
+};
 document.addEventListener("DOMContentLoaded", init, false);
-
+document.addEventListener("deviceready", init2, false);
 
 
 
@@ -54,6 +58,7 @@ Validation = {
 
 
 
+
 //-----------------------------------------------
 // Fixes and Patches
 //-----------------------------------------------
@@ -68,3 +73,5 @@ $.ui.ready(function () {
     });
 
 });
+
+

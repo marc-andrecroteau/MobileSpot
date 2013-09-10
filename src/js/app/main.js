@@ -18,6 +18,6 @@ function unloadedPanel(what) {
 // $.ui.launch has completed
 $.ui.ready(function () {
 
-
+    $.bind("")
 
 });
