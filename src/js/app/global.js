@@ -16,6 +16,7 @@ var init = function () {
         $.ui.removeFooterMenu();
     //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
 };
+// Allow testing in web browser.
 document.addEventListener((isPhoneGap()) ? "deviceready" : "DOMContentLoaded", init, false);
 
 
