@@ -8,7 +8,6 @@ $.ui.autoLaunch = false; // Prevents application running right away to show a sp
 
 // This function runs when the body is loaded.
 var init = function () {
-    alert("suce1");
     // TODO: Put back delays and implement splash screen
     //window.setTimeout(function () {
         $.ui.showBackButton = false;
@@ -17,11 +16,7 @@ var init = function () {
         $.ui.removeFooterMenu();
     //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
 };
-var init2 = function() {
-    alert("suce2");
-};
-document.addEventListener("DOMContentLoaded", init, false);
-document.addEventListener("deviceready", init2, false);
+document.addEventListener((isPhoneGap()) ? "deviceready" : "DOMContentLoaded", init, false);
 
 
 
@@ -31,12 +26,12 @@ document.addEventListener("deviceready", init2, false);
 String.prototype.format = function() {
     var args = arguments;
     return this.replace(/{(\d+)}/g, function(match, number) {
-        return typeof args[number] != 'undefined' ? args[number] : match;
+        return typeof(args[number]) != 'undefined' ? args[number] : match;
     });
 };
 
 function defaultValue(variable, defaultValue) {
-    return (variable != null) && (typeof variable !== 'undefined') ? (variable) : (defaultValue);
+    return (variable != null) && (typeof(variable) !== 'undefined') ? (variable) : (defaultValue);
 }
 
 function showHide(obj, objToHide) {
@@ -49,6 +44,11 @@ function showHide(obj, objToHide) {
     $(el).toggle();
 }
 
+function isPhoneGap() {
+    return (typeof(PhoneGap) != 'undefined' || typeof(cordova) != 'undefined')
+        && /^file:\/{3}[^\/]/i.test(window.location.href)
+        && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
+}
 
 
 
