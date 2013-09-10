@@ -59,3 +59,10 @@ p,h1,h2,h3,h4,h5,h6 {
 .error {
     color: #CC0000;
 }
+
+input {
+    -moz-box-shadow: inset 0 1px 4px rgba(0,0,0,.2);
+    -webkit-box-shadow: inset 0 1px 4px rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 4px rgba(0,0,0,.2);
+    outline: 0;
+}

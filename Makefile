@@ -36,6 +36,7 @@ OUT_JS         = ./www/js/application.min.js
 ##
 CSS_FILES = icons.css \
 			af.ui.css \
+			override.af.ui.css \
 			global.css \
 			index.css
 
