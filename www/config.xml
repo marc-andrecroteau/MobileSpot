@@ -9,7 +9,12 @@
     </description>
     <author href="http://yospot.com" email="support@yospot.com">YoSpot</author>
 
+    <access origin="http://phonegap.com" subdomains="true" />
+
     <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/camera" />
+    <feature name="http://api.phonegap.com/1.0/network" />
+    <feature name="http://api.phonegap.com/1.0/notification" />
 
     <!-- Global Preferences -->
     <preference name="phonegap-version" value="2.9.0" />
