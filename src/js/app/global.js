@@ -1,5 +1,76 @@
 
 
+
+if (!window.app || typeof(app) !== "function") {
+
+    var app = function(window) {
+        "use strict";
+
+        var document = window.document;
+
+        window.$.ui.autoLaunch = false;
+
+        document.addEventListener((this.isPhonegapLoaded()) ? "deviceready" : "DOMContentLoaded", this.initialize(), false);
+
+        window.$.ui.ready(function() {
+            applyFixesAndPatches();
+        });
+
+        function applyFixesAndPatches() {
+            // Fixes Side Menu Scrolling bug on Android.
+            // When closing keyboard with Side Menu opened, scrolling will not go back
+            // to top if the content of the menu does not overflow, making the user
+            // unable to see the whole content.
+            window.$.bind($.touchLayer, "exit-edit", function(e) {
+                window.$("#menu_scroller").css("-webkit-transform", "translate3d(0px, 0px, 0)");
+            });
+        }
+    };
+
+    app.prototype = {
+        initialize: function () {
+            // TODO: KG - Put back delays and implement splash screen
+            //window.setTimeout(function () {
+            window.$.ui.showBackButton = false;
+            window.$.ui.setSideMenuWidth((window.$("#content").width() - 40) + "px");
+            window.$.ui.launch();
+            window.$.ui.removeFooterMenu();
+            //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
+        },
+
+        defaultValue: function(variable, defaultValue) {
+            return (variable != null) && (typeof(variable) !== 'undefined') ? (variable) : (defaultValue);
+        },
+
+        // TODO: KG - This might be in the wrong place.
+        showHide: function(obj, objToHide) {
+            var el = $("#" + objToHide)[0];
+            if (obj.className == "expanded") {
+                obj.className = "collapsed";
+            } else {
+                obj.className = "expanded";
+            }
+            $(el).toggle();
+        },
+
+        // Verify that cordoja.js or phonegap.js is loaded.
+        isPhonegapLoaded: function() {
+            return ((typeof(PhoneGap) != 'undefined') || (typeof(cordova) != 'undefined'))
+                     && /^file:\/{3}[^\/]/i.test(window.location.href)
+                     && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
+        },
+
+        // Verify that both cdv-plugin-fb-connect.js and facebook-js-sdk.js are included.
+        isFacebookPluginLoaded: function() {
+            return (typeof(CDV) != 'undefined') && (typeof(FB) != 'undefined');
+        }
+    };
+
+    window.app = new app(window);
+}
+
+
+/*
 window.onerror = function(msg, url, line) {
     // You can view the information in an alert to see things working
     // like so:
@@ -13,30 +84,11 @@ window.onerror = function(msg, url, line) {
     // Internet Explorer) will be suppressed.
     return suppressErrorAlert;
 };
-
-//-----------------------------------------------
-// Global Properties and Overrides
-//-----------------------------------------------
-var webRoot = "./"; // TODO: KG - Might be useless, ...to confirm.
-$.ui.autoLaunch = false; // Prevents application running right away to show a splashscreen.
-
-// This function runs when the body is loaded.
-var init = function () {
-    // TODO: Put back delays and implement splash screen
-    //window.setTimeout(function () {
-        $.ui.showBackButton = false;
-        $.ui.setSideMenuWidth(($("#content").width() - 40) + "px");
-        $.ui.launch();
-        $.ui.removeFooterMenu();
-    //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
-};
-// Allow testing in web browser.
-document.addEventListener((isPhonegapLoaded()) ? "deviceready" : "DOMContentLoaded", init, false);
-
+*/
 
 
 //-----------------------------------------------
-// Utility Methods
+// Javascript Overrides and Overloads
 //-----------------------------------------------
 String.prototype.format = function() {
     var args = arguments;
@@ -44,52 +96,3 @@ String.prototype.format = function() {
         return typeof(args[number]) != 'undefined' ? args[number] : match;
     });
 };
-
-function defaultValue(variable, defaultValue) {
-    return (variable != null) && (typeof(variable) !== 'undefined') ? (variable) : (defaultValue);
-}
-
-function showHide(obj, objToHide) {
-    var el = $("#" + objToHide)[0];
-    if (obj.className == "expanded") {
-        obj.className = "collapsed";
-    } else {
-        obj.className = "expanded";
-    }
-    $(el).toggle();
-}
-
-// Verify that cordoja.js or phonegap.js is loaded.
-function isPhonegapLoaded() {
-    return ((typeof(PhoneGap) != 'undefined') || (typeof(cordova) != 'undefined'))
-        && /^file:\/{3}[^\/]/i.test(window.location.href)
-        && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
-}
-
-// Verify that both cdv-plugin-fb-connect.js and facebook-js-sdk.js are included.
-function isFacebookPluginLoaded() {
-    return (typeof(CDV) != 'undefined') && (typeof(FB) != 'undefined');
-}
-
-
-Validation = {
-    Mandatory : 0
-};
-
-
-
-
-//-----------------------------------------------
-// Fixes and Patches
-//-----------------------------------------------
-$.ui.ready(function () {
-
-    // Fixes Side Menu Scrolling bug on Android.
-    // When closing keyboard with Side Menu opened, scrolling will not go back
-    // to top if the content of the menu does not overflow, making the user
-    // unable to see the whole content.
-    $.bind($.touchLayer, "exit-edit", function(e) {
-        $("#menu_scroller").css("-webkit-transform", "translate3d(0px, 0px, 0)");
-    });
-
-});
