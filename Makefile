@@ -47,8 +47,9 @@ JS_FILES =  lib/appframework.js \
 			lib/handlebars.runtime.js \
 			$(HANDLEBARS_FILENAME) \
 			app/global.js \
+			app/facebook.js \
 			app/search.js \
-			app/main.js
+			app/login.js
 
 CSS_FILES := $(CSS_FILES:%=$(IN_CSS_ROOT)/%)
 JS_FILES  := $(JS_FILES:%=$(IN_JS_ROOT)/%)

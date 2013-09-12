@@ -8,11 +8,9 @@ if (!window.app || typeof(app) !== "function") {
 
         var document = window.document;
 
-        window.$.ui.autoLaunch = false;
+        $.ui.autoLaunch = false;
 
-        document.addEventListener((this.isPhonegapLoaded()) ? "deviceready" : "DOMContentLoaded", this.initialize(), false);
-
-        window.$.ui.ready(function() {
+        $.ui.ready(function() {
             applyFixesAndPatches();
         });
 
@@ -21,8 +19,8 @@ if (!window.app || typeof(app) !== "function") {
             // When closing keyboard with Side Menu opened, scrolling will not go back
             // to top if the content of the menu does not overflow, making the user
             // unable to see the whole content.
-            window.$.bind($.touchLayer, "exit-edit", function(e) {
-                window.$("#menu_scroller").css("-webkit-transform", "translate3d(0px, 0px, 0)");
+            $.bind($.touchLayer, "exit-edit", function(e) {
+                $("#menu_scroller").css("-webkit-transform", "translate3d(0px, 0px, 0)");
             });
         }
     };
@@ -31,10 +29,10 @@ if (!window.app || typeof(app) !== "function") {
         initialize: function () {
             // TODO: KG - Put back delays and implement splash screen
             //window.setTimeout(function () {
-            window.$.ui.showBackButton = false;
-            window.$.ui.setSideMenuWidth((window.$("#content").width() - 40) + "px");
-            window.$.ui.launch();
-            window.$.ui.removeFooterMenu();
+                $.ui.showBackButton = false;
+                $.ui.setSideMenuWidth((window.$("#content").width() - 40) + "px");
+                $.ui.launch();
+                $.ui.removeFooterMenu();
             //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
         },
 
@@ -67,6 +65,8 @@ if (!window.app || typeof(app) !== "function") {
     };
 
     window.app = new app(window);
+    var eventName = (app.isPhonegapLoaded()) ? "deviceready" : "DOMContentLoaded";
+    document.addEventListener(eventName, app.initialize, false);
 }
 
 

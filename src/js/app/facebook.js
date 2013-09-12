@@ -1,70 +1,78 @@
 
 
-jQuery(document).on("pagecreate", "#login", function() {
-    alert("suck me");
-    try {
-        alert('Device is ready! Make sure you set your app_id below this alert.');
-        FB.init({ appId: "492964707460823", nativeInterface: CDV.FB, useCachedDialogs: false });
-        document.getElementById('data').innerHTML = "";
-    }
-    catch (e) {
-        alert(e);
-    }
-});
+var facebook;
+(function(){
+    "use strict";
 
-
-
-
-FB.Event.subscribe('auth.login', function(response) {
-    alert('auth.login event');
-});
-
-FB.Event.subscribe('auth.logout', function(response) {
-    alert('auth.logout event');
-});
-
-FB.Event.subscribe('auth.sessionChange', function(response) {
-    alert('auth.sessionChange event');
-});
-
-FB.Event.subscribe('auth.statusChange', function(response) {
-    alert('auth.statusChange event');
-});
-
-function getSession() {
-    alert("session: " + JSON.stringify(FB.getSession()));
-}
-
-function getLoginStatus() {
-    FB.getLoginStatus(function(response) {
-        if (response.status == 'connected') {
-            alert("logged in");
-        }
-        else {
-            alert("not logged in");
-        }
-    }, false);
-}
-
-function logout() {
-    FB.logout(function(response) {
-        alert('logged out');
-    });
-}
-
-function login() {
-    FB.login(
-        function(response) {
-            if (response.authResponse) {
-                alert('logged in');
+    var FacebookWrapper = function() {
+        $.ui.ready(function() {
+            try {
+                FB.init({ appId: "492964707460823", nativeInterface: CDV.FB, useCachedDialogs: false });
             }
-            else {
-                alert('not logged in');
+            catch (e) {
+                alert(e);
             }
+        });
+
+        this.initialize();
+    };
+
+    FacebookWrapper.prototype = {
+        initialize: function() {
+            FB.Event.subscribe('auth.login', function(response) {
+                alert('auth.login event');
+            });
+            FB.Event.subscribe('auth.logout', function(response) {
+                alert('auth.logout event');
+            });
+            FB.Event.subscribe('auth.sessionChange', function(response) {
+                alert('auth.sessionChange event');
+            });
+            FB.Event.subscribe('auth.statusChange', function(response) {
+                alert('auth.statusChange event');
+            });
         },
-        { scope: "email" }
-    );
-}
+
+        getSession: function() {
+            alert("session: " + JSON.stringify(FB.getSession()));
+        },
+
+        login: function() {
+            FB.login(
+                function(response) {
+                    if (response.authResponse) {
+                        alert('logged in');
+                    }
+                    else {
+                        alert('not logged in');
+                    }
+                },
+                { scope: "email" }
+            );
+        },
+
+        logout: function() {
+            FB.logout(function(response) {
+                alert('logged out');
+            });
+        },
+
+        getLoginStatus: function() {
+            FB.getLoginStatus(function(response) {
+                if (response.status == 'connected') {
+                    alert("logged in");
+                }
+                else {
+                    alert("not logged in");
+                }
+            }, false);
+        }
+    };
+
+    //facebook = new FacebookWrapper();
+})();
+
+
 
 /*
 function facebookWallPost() {
