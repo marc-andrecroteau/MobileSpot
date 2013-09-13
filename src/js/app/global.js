@@ -1,11 +1,9 @@
 
 
+(function(window) {
+    "use strict";
 
-if (!window.app || typeof(app) !== "function") {
-
-    var app = function(window) {
-        "use strict";
-
+    var Application = function(window) {
         var document = window.document;
 
         $.ui.autoLaunch = false;
@@ -25,14 +23,14 @@ if (!window.app || typeof(app) !== "function") {
         }
     };
 
-    app.prototype = {
+    Application.prototype = {
         initialize: function () {
             // TODO: KG - Put back delays and implement splash screen
             //window.setTimeout(function () {
-                $.ui.showBackButton = false;
-                $.ui.setSideMenuWidth((window.$("#content").width() - 40) + "px");
-                $.ui.launch();
-                $.ui.removeFooterMenu();
+            $.ui.showBackButton = false;
+            $.ui.setSideMenuWidth((window.$("#content").width() - 40) + "px");
+            $.ui.launch();
+            $.ui.removeFooterMenu();
             //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
         },
 
@@ -53,9 +51,9 @@ if (!window.app || typeof(app) !== "function") {
 
         // Verify that cordoja.js or phonegap.js is loaded.
         isPhonegapLoaded: function() {
-            return ((typeof(PhoneGap) != 'undefined') || (typeof(cordova) != 'undefined'))
-                     && /^file:\/{3}[^\/]/i.test(window.location.href)
-                     && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
+            return ((typeof(PhoneGap) != 'undefined') || (typeof(cordova) != 'undefined')) &&
+                   /^file:\/{3}[^\/]/i.test(window.location.href) &&
+                   /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
         },
 
         // Verify that both cdv-plugin-fb-connect.js and facebook-js-sdk.js are included.
@@ -64,10 +62,12 @@ if (!window.app || typeof(app) !== "function") {
         }
     };
 
-    window.app = new app(window);
+    window.app = new Application(window);
+
     var eventName = (app.isPhonegapLoaded()) ? "deviceready" : "DOMContentLoaded";
     document.addEventListener(eventName, app.initialize, false);
-}
+
+})(window);
 
 
 /*

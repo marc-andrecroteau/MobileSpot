@@ -1,10 +1,9 @@
 
 
-var facebook;
-(function(){
+(function(app){
     "use strict";
 
-    var FacebookWrapper = function() {
+    var Facebook = function() {
         $.ui.ready(function() {
             try {
                 FB.init({ appId: "492964707460823", nativeInterface: CDV.FB, useCachedDialogs: false });
@@ -17,7 +16,7 @@ var facebook;
         this.initialize();
     };
 
-    FacebookWrapper.prototype = {
+    Facebook.prototype = {
         initialize: function() {
             FB.Event.subscribe('auth.login', function(response) {
                 alert('auth.login event');
@@ -67,24 +66,22 @@ var facebook;
                 }
             }, false);
         }
+
+        /*
+        facebookWallPost: function() {
+            var params = {
+                method:      'feed',
+                name:        'Facebook Dialogs',
+                link:        'https://developers.facebook.com/docs/reference/dialogs/',
+                picture:     'http://fbrell.com/f8.jpg',
+                caption:     'Reference Documentation',
+                description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+            };
+            console.log(params);
+            FB.ui(params, function(obj) { console.log(obj);});
+        }
+        */
     };
 
-    //facebook = new FacebookWrapper();
-})();
-
-
-
-/*
-function facebookWallPost() {
-    var params = {
-        method:      'feed',
-        name:        'Facebook Dialogs',
-        link:        'https://developers.facebook.com/docs/reference/dialogs/',
-        picture:     'http://fbrell.com/f8.jpg',
-        caption:     'Reference Documentation',
-        description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-    };
-    console.log(params);
-    FB.ui(params, function(obj) { console.log(obj);});
-}
-*/
+    //app.facebook = new Facebook();
+})(app);

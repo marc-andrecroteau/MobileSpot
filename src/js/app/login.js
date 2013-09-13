@@ -1,14 +1,16 @@
 
 
 (function(app) {
+    "use strict";
 
-    var login = function() {
+    var Login = function() {
         //-----------------------------------------------
         // Main Entry Point
         //-----------------------------------------------
         // This function will get executed when
         // $.ui.launch has completed
         this.initialize();
+
         $.ui.ready(function () {
             alert("ui ready login");
             $("#login").bind("loadpanel", function() {
@@ -17,7 +19,7 @@
         });
     };
 
-    login.prototype = {
+    Login.prototype = {
         initialize: function() {
 
         },
@@ -32,6 +34,6 @@
         }
     };
 
-    app.login = new login();
+    app.login = new Login();
 
 })(app);
