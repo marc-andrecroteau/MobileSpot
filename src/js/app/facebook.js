@@ -4,16 +4,8 @@
     "use strict";
 
     var Facebook = function() {
-        $.ui.ready(function() {
-            try {
-                FB.init({ appId: "492964707460823", nativeInterface: CDV.FB, useCachedDialogs: false });
-            }
-            catch (e) {
-                alert(e);
-            }
-        });
-
-        this.initialize();
+        //this.initialize();
+        $.ui.ready(function() { app.facebook.ready(); });
     };
 
     Facebook.prototype = {
@@ -30,6 +22,15 @@
             FB.Event.subscribe('auth.statusChange', function(response) {
                 alert('auth.statusChange event');
             });
+        },
+
+        ready: function() {
+            try {
+                //FB.init({ appId: "492964707460823", nativeInterface: CDV.FB, useCachedDialogs: false});
+            }
+            catch (e) {
+                alert(e); // TODO: KG - Development Mode. Remove for Prod.
+            }
         },
 
         getSession: function() {
@@ -83,5 +84,5 @@
         */
     };
 
-    //app.facebook = new Facebook();
+    app.facebook = new Facebook();
 })(app);
