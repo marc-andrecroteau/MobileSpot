@@ -41,6 +41,22 @@ p,h1,h2,h3,h4,h5,h6 {
 /*-----------------------------------------------
  * Utility Classes
  *---------------------------------------------*/
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+overflow-auto {
+    overflow: auto;
+}
+
 .blink {
     animation: fade 3000ms infinite;
     -webkit-animation: fade 3000ms infinite;
