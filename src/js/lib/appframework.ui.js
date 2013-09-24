@@ -321,7 +321,7 @@
     };
 })(af);
 /**
- * af.scroller
+ * af.scroller 
  * created by appMobi with modifications by Carlos Ouro @ Badoo and Intel
  * Supports iOS native touch scrolling
  * Optimizations and bug improvements by Intel
@@ -699,12 +699,12 @@
 
         };
         nativeScroller = function (el, opts) {
-
+           
             if(opts.nativeParent){
                 el=el.parentNode;
             }
             this.init(el, opts);
-
+            
             var $el = $(el);
 
             if (opts.noParent !== true) {
@@ -782,13 +782,13 @@
             }
         };
         nativeScroller.prototype.onTouchStart = function (e) {
-
+            
 
             if(this.el.scrollTop===0)
                 this.el.scrollTop=1;
             if(this.el.scrollTop===(this.el.scrollHeight - this.el.clientHeight))
                 this.el.scrollTop-=1;
-
+            
             if(this.horizontalScroll){
                 if(this.el.scrollLeft===0)
                     this.el.scrollLeft=1;
@@ -807,10 +807,10 @@
 
                 }
             }
-
+           
         };
         nativeScroller.prototype.onTouchMove = function (e) {
-
+           
             var newcY = e.touches[0].pageY - this.dY;
             var newcX = e.touches[0].pageX - this.dX;
             if(this.hasVertScroll&&this.el.clientHeight==this.el.scrollHeight){
@@ -1411,7 +1411,7 @@
 
         };
 
-
+       
 
         jsScroller.prototype.calculateMovement = function (event, last) {
             //default variables
@@ -1465,7 +1465,7 @@
 
             var minLeft=this.container.clientWidth/2;
             var maxLeft=this.elementInfo.maxLeft+minLeft;
-
+            
             if (scrollInfo.x > minLeft) scrollInfo.x = minLeft;
             else if (-scrollInfo.x > maxLeft) scrollInfo.x = -maxLeft;
             else return;
@@ -1830,6 +1830,7 @@
                 };
                 this.id = id = opts.id = opts.id || $.uuid(); //opts is passed by reference
                 var self = this;
+                this.addCssClass = opts.addCssClass ? opts.addCssClass : "";
                 this.title = opts.suppressTitle ? "" : (opts.title || "Alert");
                 this.message = opts.message || "";
                 this.cancelText = opts.cancelText || "Cancel";
@@ -1855,6 +1856,7 @@
 
         popup.prototype = {
             id: null,
+            addCssClass: null,
             title: null,
             message: null,
             cancelText: null,
@@ -1869,7 +1871,7 @@
             supressTitle: false,
             show: function () {
                 var self = this;
-                var markup = '<div id="' + this.id + '" class="afPopup hidden">'+
+                var markup = '<div id="' + this.id + '" class="afPopup hidden '+ this.addCssClass + '">'+
                             '<header>' + this.title + '</header>'+
                              '<div>' + this.message + '</div>'+
                              '<footer style="clear:both;">'+
@@ -2117,7 +2119,7 @@
 
             if (what == 1) { //show
                 $(theEl).vendorCss("TextSecurity","none");
-
+                
             } else {
                 $(theEl).vendorCss("TextSecurity","disc");
             }
@@ -2578,7 +2580,7 @@
         };
         //iPhone double clicks workaround
         document.addEventListener('click', function(e) {
-
+        
             if (cancelClick) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -2762,7 +2764,7 @@
         onClick: function(e) {
             //handle forms
             var tag = e.target && e.target.tagName !== undefined ? e.target.tagName.toLowerCase() : '';
-
+            
             //this.log("click on "+tag);
             if (inputElements.indexOf(tag) !== -1 && (!this.isFocused_ || e.target !== (this.focusedElement))) {
                 var type = e.target && e.target.type !== undefined ? e.target.type.toLowerCase() : '';
@@ -2802,7 +2804,7 @@
 
                 //BB10 needs to be preventDefault on touchstart and thus need manual blur on click
             } else if ($.os.blackberry10 && this.isFocused_) {
-
+                
 
                 this.focusedElement.blur();
             }
@@ -3135,7 +3137,7 @@
                 this.lastTouchStartX = this.dX;
                 this.lastTouchStartY = this.dY;
             }
-
+            
             this.clearTouchVars();
         },
 
@@ -3230,7 +3232,7 @@
 
 
 
-        if ("AppMobi" in window){
+        if ("AppMobi" in window){ 
             document.addEventListener("appMobi.device.ready", function() {
                 that.autoBoot();
             });
@@ -3240,17 +3242,16 @@
                 that.autoBoot();
             else{
                 $(window).one("afui:init", function() {
-        		  that.autoBoot();
-			     });
+        		  that.autoBoot();  
+                });
             }
         } else $(document).ready(function() {
                 if(that.init)
                     that.autoBoot();
                 else{
-				    $(window).one("afui:init", function() {
-
-					   that.autoBoot();
-				    });
+                    $(window).one("afui:init", function() {
+                        that.autoBoot();
+                    });
                 }
             }, false);
 
@@ -3281,14 +3282,25 @@
                     }));
                 } else if ($.os.blackberry||$.os.blackberry10||$.os.playbook) {
                     $("#afui").addClass("bb");
-                    that.backButtonText = "Back";
-                    $("head").find("#bb10VisibilityHack").remove();
-                    $("head").append("<style id='bb10VisibilityHack'>#afui .panel {-webkit-backface-visibility:visible  !important}</style>");
+                    that.backButtonText = "Back";                
                 } else if ($.os.ios7)
                     $("#afui").addClass("ios7");
                 else if ($.os.ios)
                     $("#afui").addClass("ios");
             }
+            //BB 10 hack to work with any theme
+            if ($.os.blackberry||$.os.blackberry10||$.os.playbook)
+            {
+                $("head").find("#bb10VisibilityHack").remove();
+                $("head").append("<style id='bb10VisibilityHack'>#afui .panel {-webkit-backface-visibility:visible  !important}</style>");
+            }
+            /** iOS 7 will get blurry if you use the perspective hack, so we remove it */
+            /** @TODO - refactor CSS to not use the perspective hack and move the ios5/6 hacks here */
+            else if($.os.ios7){
+                $("head").find("#ios7BlurrHack").remove();
+                $("head").append("<style id='ios7BlurrHack'>#afui .panel {-webkit-perspective:0  !important}</style>");   
+            }
+            //iOS 7 specific hack */
 
         }
     };
@@ -3505,7 +3517,7 @@
            $.ui.showBackButton = false; //
          * @title $.ui.showBackButton
          */
-        showBackbutton: true,
+        showBackbutton: true, // Kept for backward compatibility.
         showBackButton: true,
         /**
          *  Override the back button text
@@ -4058,6 +4070,12 @@
 
                 this.scrollToTop('modal');
                 modalDiv.data("panel", id);
+                var myPanel=$panel.get(0);
+                var fnc = myPanel.getAttribute("data-load");
+                if (typeof fnc == "string" && window[fnc]) {
+                    window[fnc](myPanel);
+                }
+                $panel.trigger("loadpanel");
 
             }
         },
@@ -4207,7 +4225,7 @@
                 scrollEl = tmp.cloneNode(false);
 
 
-                tmp.title = null;
+                tmp.title = null;                
                 tmp.id = null;
                 var $tmp = $(tmp);
                 $tmp.removeAttr("data-footer data-aside data-nav data-header selected data-load data-unload data-tab data-crc title data-title");
@@ -4358,7 +4376,7 @@
                 }
                 this.customMenu = false;
             }
-
+       
 
             if (oldDiv) {
                 fnc = oldDiv.getAttribute("data-unload");
@@ -4374,19 +4392,7 @@
             $(what).trigger("loadpanel");
             if (this.isSideMenuOn()) {
                 var that = this;
-                that.toggleSideMenu(false);
-                /* $("#menu").width(window.innerWidth);
-
-                $(".hasMenu").css3Animate({
-                    x: (window.innerWidth + 100),
-                    time: that.transitionTime,
-                    complete: function() {
-                        $("#menu").width(that.sideMenuWidth);
-                        that.toggleSideMenu(false);
-
-                    }
-                });
-                */
+                that.toggleSideMenu(false);               
             }
         },
         /**
@@ -4490,11 +4496,12 @@
             var currWhat = what;
 
             if (what.getAttribute("data-modal") == "true" || what.getAttribute("modal") == "true") {
-                var fnc = what.getAttribute("data-load");
+                /*var fnc = what.getAttribute("data-load");
                 if (typeof fnc == "string" && window[fnc]) {
                     window[fnc](what);
                 }
-                $(what).trigger("loadpanel");
+                $(what).trigger("loadpanel");                
+                */
                 return this.showModal(what.id);
             }
 
@@ -4570,8 +4577,7 @@
                 }
             }
 
-            //$("#header #menubadge").css("float", "right");
-            this.setBackButtonVisibility(false);
+            $("#header #menubadge").css("float", "right");
             if (this.history.length === 0) {
                 this.setBackButtonVisibility(false);
                 this.history = [];
@@ -4601,7 +4607,7 @@
             var that = this;
             if (target.indexOf("http") == -1) target = AppMobi.webRoot + target;
             var xmlhttp = new XMLHttpRequest();
-
+        
             if (anchor && typeof(anchor) !== "object") {
                 anchor = document.createElement("a");
                 anchor.setAttribute("data-persist-ajax", true);
@@ -4628,7 +4634,7 @@
                         } : null;
                         //that.addContentDiv(urlHash, xmlhttp.responseText, refresh, refreshFunction);
                         var contents = $(xmlhttp.responseText);
-
+                        
                         if (contents.hasClass("panel"))
                         {
                             urlHash=contents.attr("id");
@@ -5158,7 +5164,7 @@
     $.ui = new ui();
     $.ui.init=true;
     $(window).trigger('afui:preinit');
-    $(window).trigger('afui:init');
+    $(window).trigger('afui:init'); 
 
 })(af);
 

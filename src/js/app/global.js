@@ -4,12 +4,11 @@
     "use strict";
 
     var Application = function(window) {
-        var document = window.document;
-
         $.ui.autoLaunch = false;
 
         $.ui.ready(function() {
             applyFixesAndPatches();
+            app.ready();
         });
 
         function applyFixesAndPatches() {
@@ -24,6 +23,9 @@
     };
 
     Application.prototype = {
+        timer5: 0,
+        timer10: 0,
+
         initialize: function () {
             // TODO: KG - Put back delays and implement splash screen
             //window.setTimeout(function () {
@@ -32,6 +34,19 @@
             $.ui.launch();
             $.ui.removeFooterMenu();
             //}, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
+        },
+
+        ready: function() {
+            document.addEventListener("online", this.deviceOnline, false);
+            document.addEventListener("offline", this.deviceOffline, false);
+        },
+
+        deviceOnline: function() {
+            alert("device is ONline");
+        },
+
+        deviceOffline: function() {
+            alert("device is OFFline");
         },
 
         defaultValue: function(variable, defaultValue) {

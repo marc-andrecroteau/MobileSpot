@@ -84,5 +84,8 @@
         */
     };
 
-    app.facebook = new Facebook();
+    // TODO: KG - What to do if plugin is not loaded?
+    if (app.isFacebookPluginLoaded) {
+        app.facebook = new Facebook();
+    }
 })(app);

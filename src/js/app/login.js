@@ -11,6 +11,7 @@
     Login.prototype = {
         id: "",
         $panel: $(),
+        isConnected: true,
 
         initialize: function(panelID) {
             this.id = panelID;

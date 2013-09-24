@@ -26,16 +26,12 @@
 
         ready: function() {
             this.$searchbox = $("#" + this.id);
+            this.$searchbox.on("input", function(e) {
+                alert(app.login.isConnected);
+            });
         }
     };
 
     app.search = new Search("search");
 
 })(app);
-
-
-$.ui.ready(function () {
-    $("#search").on("input", function(e) {
-        //alert(e.target.value);
-    });
-});

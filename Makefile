@@ -47,6 +47,7 @@ JS_FILES =  lib/appframework.js \
 			lib/handlebars.runtime.js \
 			$(HANDLEBARS_FILENAME) \
 			app/global.js \
+			app/helpers.js \
 			app/facebook.js \
 			app/search.js \
 			app/login.js
