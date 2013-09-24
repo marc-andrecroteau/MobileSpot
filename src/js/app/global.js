@@ -39,6 +39,7 @@
         ready: function() {
             document.addEventListener("online", this.deviceOnline, false);
             document.addEventListener("offline", this.deviceOffline, false);
+            alert("Global Ready");
         },
 
         deviceOnline: function() {
