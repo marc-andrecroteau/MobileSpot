@@ -4577,7 +4577,7 @@
                 }
             }
 
-            $("#header #menubadge").css("float", "right");
+            $("#header #menubadge").css("float", "left");
             if (this.history.length === 0) {
                 this.setBackButtonVisibility(false);
                 this.history = [];
