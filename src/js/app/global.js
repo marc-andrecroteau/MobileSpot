@@ -1,7 +1,6 @@
 
 
 (function(window) {
-    "use strict";
 
     var Application = function(window) {
         $.ui.autoLaunch = false;
