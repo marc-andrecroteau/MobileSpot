@@ -29,9 +29,9 @@
             //var item = { text: "Kaven item" };
             //client.getTable("Item").insert(item);
             $("#loginbutton").on("click", function() {
-                client.login("facebook").then(
+                client.login("google").then(
                     function() {
-                        alert("Logged in to Facebook: " + client.currentUser.userId);
+                        alert("Logged in to Google: " + client.currentUser.userId);
                     },
                     function(error){
                         alert(error);
