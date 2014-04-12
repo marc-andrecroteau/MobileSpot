@@ -40,6 +40,9 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="splash-screen-duration" value="3000" />
     <preference name="load-url-timeout" value="20000" />
+    <feature name="Geolocation">
+      <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+    </feature>
 
     <!-- BlackBerry Preferences -->
     <preference name="disable-cursor" value="false" />
